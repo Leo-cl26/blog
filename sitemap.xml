@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/note/2017/06/14/another-note/</loc>
+    <loc>https://leo-cl26.github.io/blog/note/2017/06/14/another-note/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://leo-cl26.github.io/blog/categories/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/example/</loc>
+    <loc>https://leo-cl26.github.io/blog/categories/example/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://leo-cl26.github.io/blog/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/note/</loc>
+    <loc>https://leo-cl26.github.io/blog/note/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/tutorial/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/tutorial/</loc>
     <lastmod>2017-06-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/note/2017/06/13/a-quick-note/</loc>
+    <loc>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note/</loc>
     <lastmod>2017-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2016/02/14/a-plain-markdown-post/</loc>
+    <loc>https://leo-cl26.github.io/blog/post/2016/02/14/a-plain-markdown-post/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/blogdown/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/blogdown/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/hugo/</loc>
+    <loc>https://leo-cl26.github.io/blog/categories/hugo/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/markdown/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/markdown/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/mathjax/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/mathjax/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/pandoc/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/pandoc/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
+    <loc>https://leo-cl26.github.io/blog/post/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/rstudio/</loc>
+    <loc>https://leo-cl26.github.io/blog/tags/rstudio/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2015/07/23/lorem-ipsum/</loc>
+    <loc>https://leo-cl26.github.io/blog/post/2015/07/23/lorem-ipsum/</loc>
     <lastmod>2015-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>https://leo-cl26.github.io/blog/about/</loc>
   </url>
 </urlset>
