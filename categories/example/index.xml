@@ -1,29 +1,85 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Example on A minimal Hugo website</title>
+    <title>Example on Leocl&#39;s blog</title>
     <link>https://leo-cl26.github.io/blog/categories/example/</link>
-    <description>Recent content in Example on A minimal Hugo website</description>
+    <description>Recent content in Example on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/categories/example/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/categories/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数值计算方法:3-插值法</title>
+      <link>https://leo-cl26.github.io/blog/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E6%8F%92%E5%80%BC%E6%B3%95/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://leo-cl26.github.io/blog/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E6%8F%92%E5%80%BC%E6%B3%95/</guid>
+      <description>3.1. 函数逼近的基本概念 函数逼近是指用一个函数序列来逼近另一个函数的过程。在实际应用中，我们经常需要用一个简单的函数来近似描述一个复杂的函数，这时就需要用到函数逼近的方法。
+3.1.1. 函数逼近与函数空间 函数逼近的基本思想是将要逼近的函数表示为一个函数空间中的元素，然后在该函数空间中寻找一个函数序列，使得该序列能够逼近要求的函数。
+函数空间是指由一组函数构成的集合，这些函数通常具有某些共同的性质。例如，所有连续函数构成的集合就是一个函数空间，所有可微函数构成的集合也是一个函数空间。
+函数空间中的函数序列通常是由一组基函数线性组合而成的，即
+$$f(x)=\sum_{i=1}^n c_i\phi_i(x)$$
+其中，$\phi_i(x)$是基函数，$c_i$是待定系数。
+在函数空间中，每个元素都可以看作是一个函数，而每个函数都可以表示为无限个基函数的线性组合，所以函数空间是无限维的向量空间。
+3.1.2. 范数与赋范线性空间 范数是一个将向量映射到非负实数的函数，它满足以下条件：
+非负性：对于任意向量$x$，有$\left|x\right|\geq 0$，且$\left|x\right|=0$当且仅当$x=0$。
+齐次性：对于任意向量$x$和任意实数$a$，有$\left|ax\right|=|a|\left|x\right|$。
+三角不等式：对于任意向量$x$和$y$，有$\left|x+y\right|\leq\left|x\right|+\left|y\right|$。
+赋范线性空间是指一个向量空间配备了一个范数的空间。例如，在向量空间中，我们通常使用$L^p$范数来度量向量的大小，即
+$$ |x|_p=(|x_1|^p+|x_2|^p+&amp;hellip;+|x_n|^p)^{\frac{1}{p}} $$
+其中$|x_i|$表示$x_i$的绝对值。当$p=2$时，$L^p$范数就是我们熟知的欧几里得范数，即向量的长度。当$p=1$时，$L^p$范数就是所有元素绝对值的和，也被称为曼哈顿距离或者城市街区距离。
+在函数空间中，$L^p$范数被定义为：
+$$\left|f\right|_p=\left(\int_a^b|f(x)|^pdx\right)^{\frac{1}{p}}$$
+其中，$a$和$b$是函数的定义域，$p$是一个正实数。
+3.1.3. 内积与内积空间 内积是一个将两个向量映射到一个实数的函数，它满足以下条件：
+对称性：对于任意向量$x$和$y$，有$\left&amp;lt;x,y\right&amp;gt;=\left&amp;lt;y,x\right&amp;gt;$。
+线性性：对于任意向量$x$、$y$和任意实数$a$、$b$，有$\left&amp;lt;a x+b y,z\right&amp;gt;=a\left&amp;lt;x,z\right&amp;gt;+b\left&amp;lt;y,z\right&amp;gt;$。
+正定性：对于任意非零向量$x$，有$\left&amp;lt;x,x\right&amp;raquo;0$。
+内积空间是指一个向量空间配备了一个内积的空间。例如，为了度量在欧几里德空间中向量之间的相似度和夹角大小，我们通常使用欧几里得空间内积。在欧几里得空间中，两个向量$x$和$y$的内积可以表示为：
+$$(x,y) = \sum_{i=1}^n x_iy_i$$
+其中，$x_i$和$y_i$分别表示向量$x$和$y$的第$i$个分量，$n$表示向量的维度。
+相似地，在函数空间中，我们通常使用$L^2$内积来度量函数之间的相似度，即
+$$\left(f,g\right)=\int_a^bf(x)g(x)dx$$
+3.1.4. 最佳逼近 最佳逼近是指在函数空间中寻找一个函数序列，使得该序列能够最小化与要求函数之间的距离。在$L^2$空间中，最佳逼近可以通过求解正交投影问题来实现。
+设$f$为$L^2$空间中的一个函数，${\phi_i}$为$L^2$空间中的一组正交基函数，$g$为$L^2$空间中的一个函数序列，我们的目标是找到一个函数序列${g_n}$，使得${g_n}$能够最小化$f-g_n$的$L^2$范数。
+根据正交投影的定义，类似于向量空间中的正交投影，我们可以将$f$在${\phi_i}$上正交投影得到
+$$f=\sum_{i=1}^\infty\frac{\left&amp;lt;f,\phi_i\right&amp;gt;}{\left&amp;lt;\phi_i,\phi_i\right&amp;gt;}\phi_i$$
+令$g_n=\sum_{i=1}^n\frac{\left&amp;lt;f,\phi_i\right&amp;gt;}{\left&amp;lt;\phi_i,\phi_i\right&amp;gt;}\phi_i$，则有
+$$\left|f-g_n\right|^2=\left|f-\sum_{i=1}^n\frac{\left&amp;lt;f,\phi_i\right&amp;gt;}{\left&amp;lt;\phi_i,\phi_i\right&amp;gt;}\phi_i\right|^2=\left|\sum_{i=n+1}^\infty\frac{\left&amp;lt;f,\phi_i\right&amp;gt;}{\left&amp;lt;\phi_i,\phi_i\right&amp;gt;}\phi_i\right|^2$$
+由于${\phi_i}$是正交基函数，因此有
+$$\left|f-g_n\right|^2=\sum_{i=n+1}^\infty\frac{\left|\left&amp;lt;f,\phi_i\right&amp;gt;\right|^2}{\left&amp;lt;\phi_i,\phi_i\right&amp;gt;^2}$$
+因此，我们可以通过求解上式的最小值来得到最佳逼近函数序列${g_n}$。
+3.2. 正交多项式 在数学中，正交多项式是一类特殊的多项式函数，它们在一定的权函数下满足正交性质。正交多项式在数学和物理学中有广泛的应用，例如在傅里叶级数、微积分、量子力学等领域。
+3.2.1. 正交函数族 正交函数族是指一组函数，它们在一定的权函数下满足正交性质。具体来说，对于一组函数$f_n(x)$，如果它们在权函数$\rho(x)$下满足以下条件：
+$$\int_a^b \rho(x)f_n(x)f_m(x)dx=\begin{cases}0&amp;amp;n\neq m\c_n&amp;amp;n=m\end{cases}$$
+其中$c_n$是一个常数，$a$和$b$是积分区间，则称$f_n(x)$是在权函数$\rho(x)$下的正交函数族。
+若 $\left{f_n(x)\right}_0^{\infty}$ 是$[a, b]$上带权 $\rho(x)$ 的正交多项式, 则 $n \geqslant 0$ 有递推关系：</description>
+    </item>
+    
     <item>
       <title>Another Note on A blogdown Tutorial</title>
-      <link>https://leo-cl26.github.io/blog/note/2017/06/14/another-note/</link>
+      <link>https://leo-cl26.github.io/blog/note/2017/06/14/another-note-on-a-blogdown-tutorial/</link>
       <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/note/2017/06/14/another-note/</guid>
-      <description>I just discovered an awesome tutorial on blogdown written by Alison. I have to admit this is the best blogdown tutorial I have seen so far.</description>
+      <guid>https://leo-cl26.github.io/blog/note/2017/06/14/another-note-on-a-blogdown-tutorial/</guid>
+      <description>6.1 迭代法的基本概念 6.1.1 引言 在实际问题中，线性方程组的解往往不是直接求解得到的，而是通过一些迭代算法来逐步逼近解。迭代法是一种通过递推公式，将原问题转化为逐步逼近的问题，最终达到精度要求的方法。本章将介绍解线性方程组的迭代法。
+6.1.2 向量序列与矩阵序列的极限 在迭代法中，我们需要研究向量序列和矩阵序列的极限。设${x_k}$是向量序列，${A_k}$是矩阵序列，${b_k}$是常向量序列，若存在向量$x$，使得$\lim\limits_{k \to \infty}x_k=x$，则称向量序列${x_k}$收敛于向量$x$，记作$x_k \to x$。若存在矩阵$A$，使得$\lim\limits_{k \to \infty}A_k=A$，则称矩阵序列${A_k}$收敛于矩阵$A$，记作$A_k \to A$。
+6.1.3 迭代法及其收敛性 设$Ax=b$是线性方程组，$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵，若$\det(D) \neq 0$，则原方程组的解为$x=A^{-1}b$。考虑用迭代法求解该方程组，即构造如下迭代格式：
+$$x^{(k+1)}=Mx^{(k)}+N$$其中，$M$为系数矩阵，$N$为常向量，$x^{(k)}$为第$k$次迭代的解向量。将$x^{(k+1)}$代入迭代公式得：
+$$x^{(k+1)}=Mx^{(k)}+N=M(Mx^{(k-1)}+N)+N=M^2x^{(k-1)}+(I+M)N=M^3x^{(k-2)}+(I+M+M^2)N=\cdots$$可知，第$k$次迭代的解向量可表示为：
+$$x^{(k)}=M^kx^{(0)}+(I+M+M^2+\cdots+M^{k-1})N$$其中，$x^{(0)}$为初值向量。为保证迭代法的收敛性，需要满足$||M||&amp;lt;1$，其中$||\cdot||$为矩阵范数。若$||M||&amp;lt;1$，则对任意初值向量$x^{(0)}$，迭代序列${x^{(k)}}$均收敛于方程组的解$x$。
+常见的迭代法有Jacobi迭代法、Gauss-Seidel迭代法和超松弛迭代法。其中，Jacobi迭代法和Gauss-Seidel迭代法是最基本的线性方程组迭代法，超松弛迭代法是在Gauss-Seidel迭代法的基础上引入松弛因子进行加速的算法。
+6.2 雅克比迭代法与高斯-赛德尔迭代法 6.2.1 雅克比迭代法 Jacobi迭代法是一种最基本的线性方程组迭代法。设线性方程组$Ax=b$，其中$A=[a_{ij}]{n \times n}$，$b=[b_i]{n \times 1}$，则方程组可以表示为：
+$$\begin{cases} a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\ \cdots \\ a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n \end{cases}$$为了方便计算，我们将方程组表示为矩阵形式$Ax=b$，即：
+$$\begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$$Jacobi迭代法的基本思想是将$A$分解为$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵。将方程组表示为：</description>
     </item>
     
     <item>
       <title>A Quick Note on Two Beautiful Websites</title>
-      <link>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note/</link>
+      <link>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note-on-two-beautiful-websites/</link>
       <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note/</guid>
-      <description>To me, the two most impressive websites based on blogdown are:
-Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al. I&amp;rsquo;m sure there will be more.</description>
+      <guid>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note-on-two-beautiful-websites/</guid>
+      <description>Code Blocks Code block with backticks &amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;Code block indented with four spaces &amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;Code block with Hugo&amp;rsquo;s internal highlight shortcode &amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Diff code block [dependencies.bevy]git = &amp;quot;https://github.</description>
     </item>
     
     <item>
@@ -32,9 +88,13 @@ Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>https://leo-cl26.github.io/blog/post/2016/02/14/a-plain-markdown-post/</guid>
-      <description>This sample post is mainly for blogdown users. If you do not use blogdown, you can skip the first section.
-1. Markdown or R Markdown This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
-You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Goldmark by default, and an R Markdown document is compiled by rmarkdown and Pandoc.</description>
+      <description>2.1 引言 2.1.1 插值问题的提出 在数值计算中，经常需要在一些已知数据点之间进行插值，即求出一个函数在这些点上的取值，这个问题被称为插值问题。插值问题的应用非常广泛，例如在科学计算中，需要通过实验数据来拟合出一个函数模型，以便进行预测和分析；在工程计算中，需要通过已知数据点来计算出某些未知参数的值。
+2.1.2 多项式插值 多项式插值是一种常用的插值方法，它的基本思想是通过已知数据点构造一个多项式函数，使得这个多项式函数在这些点上与原函数的值相等。多项式插值的优点是简单易用，计算速度快，但是它也存在一些缺点，例如多项式插值可能会出现龙格现象，即在插值点附近出现振荡现象，这会导致插值函数的精度下降。
+2.2 拉格朗日插值 2.2.1 线性插值与抛物线插值 线性插值和抛物线插值是最简单的插值方法，它们分别对应于一次和二次多项式插值。
+线性插值是通过已知的两个数据点 $(x_0, y_0)$ 和 $(x_1, y_1)$ 来构造一个一次多项式函数 $P_1(x)$，使得 $P_1(x_0) = y_0$，$P_1(x_1) = y_1$。根据一次多项式的形式，$P_1(x)$ 可以表示为：
+$$ P_1(x) = y_0 + \frac{y_1 - y_0}{x_1 - x_0}(x - x_0) $$
+抛物线插值是通过已知的三个数据点 $(x_0, y_0)$，$(x_1, y_1)$ 和 $(x_2, y_2)$ 来构造一个二次多项式函数 $P_2(x)$，使得 $P_2(x_0) = y_0$，$P_2(x_1) = y_1$，$P_2(x_2) = y_2$。根据二次多项式的形式，$P_2(x)$ 可以表示为：
+$$ P_2(x) = y_0\frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} + y_1\frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)} + y_2\frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)} $$</description>
     </item>
     
     <item>
@@ -43,8 +103,13 @@ You cannot run any R code in a plain Markdown document, whereas in an R Markdown
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://leo-cl26.github.io/blog/post/2015/07/23/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Quisque mattis volutpat lorem vitae feugiat.</description>
+      <description>This is an inline (a^=x-b^) equation.
+These are block equations:
+[a^=x-b^]
+[ a^=x-b^ ]
+[ a^=x-b^ ]
+These are block equations using alternate delimiters:
+\$\$a^*=x-b^*\$\$\$\$ a^*=x-b^* \$\$$$ a^=x-b^ $$</description>
     </item>
     
   </channel>

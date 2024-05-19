@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Another Note on A blogdown Tutorial | Leocl&#39;s blog</title>
+    <link rel="stylesheet" href="/blog/css/style.css" />
+    <link rel="stylesheet" href="/blog/css/fonts.css" />
+    
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Leo-cl26/picture_bed@main/202405191648914.png" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/blog/">Home</a></li>
+      
+      <li><a href="/blog/about/">About</a></li>
+      
+      <li><a href="/blog/categories/">Categories</a></li>
+      
+      <li><a href="/blog/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+
+
+<div class="article-meta">
+    <h1><span class="title">Another Note on A blogdown Tutorial</span></h1>
+    
+    <h2 class="date">2017/06/14</h2>
+</div>
+
+
+<main>
+    
+    <h3 id="61-迭代法的基本概念">6.1 迭代法的基本概念</h3>
+<h4 id="611-引言">6.1.1 引言</h4>
+<p>在实际问题中，线性方程组的解往往不是直接求解得到的，而是通过一些迭代算法来逐步逼近解。迭代法是一种通过递推公式，将原问题转化为逐步逼近的问题，最终达到精度要求的方法。本章将介绍解线性方程组的迭代法。</p>
+<h4 id="612-向量序列与矩阵序列的极限">6.1.2 向量序列与矩阵序列的极限</h4>
+<p>在迭代法中，我们需要研究向量序列和矩阵序列的极限。设${x_k}$是向量序列，${A_k}$是矩阵序列，${b_k}$是常向量序列，若存在向量$x$，使得$\lim\limits_{k \to \infty}x_k=x$，则称向量序列${x_k}$收敛于向量$x$，记作$x_k \to x$。若存在矩阵$A$，使得$\lim\limits_{k \to \infty}A_k=A$，则称矩阵序列${A_k}$收敛于矩阵$A$，记作$A_k \to A$。</p>
+<h4 id="613-迭代法及其收敛性">6.1.3 迭代法及其收敛性</h4>
+<p>设$Ax=b$是线性方程组，$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵，若$\det(D) \neq 0$，则原方程组的解为$x=A^{-1}b$。考虑用迭代法求解该方程组，即构造如下迭代格式：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=Mx^{(k)}+N$$
+</div>
+</div>
+</div>
+<p>其中，$M$为系数矩阵，$N$为常向量，$x^{(k)}$为第$k$次迭代的解向量。将$x^{(k+1)}$代入迭代公式得：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=Mx^{(k)}+N=M(Mx^{(k-1)}+N)+N=M^2x^{(k-1)}+(I+M)N=M^3x^{(k-2)}+(I+M+M^2)N=\cdots$$
+</div>
+</div>
+</div>
+<p>可知，第$k$次迭代的解向量可表示为：</p>
+<div>
+<div>
+<div>
+$$x^{(k)}=M^kx^{(0)}+(I+M+M^2+\cdots+M^{k-1})N$$
+</div>
+</div>
+</div>
+<p>其中，$x^{(0)}$为初值向量。为保证迭代法的收敛性，需要满足$||M||&lt;1$，其中$||\cdot||$为矩阵范数。若$||M||&lt;1$，则对任意初值向量$x^{(0)}$，迭代序列${x^{(k)}}$均收敛于方程组的解$x$。</p>
+<p>常见的迭代法有Jacobi迭代法、Gauss-Seidel迭代法和超松弛迭代法。其中，Jacobi迭代法和Gauss-Seidel迭代法是最基本的线性方程组迭代法，超松弛迭代法是在Gauss-Seidel迭代法的基础上引入松弛因子进行加速的算法。</p>
+<h3 id="62-雅克比迭代法与高斯-赛德尔迭代法">6.2 雅克比迭代法与高斯-赛德尔迭代法</h3>
+<h4 id="621-雅克比迭代法">6.2.1 雅克比迭代法</h4>
+<p>Jacobi迭代法是一种最基本的线性方程组迭代法。设线性方程组$Ax=b$，其中$A=[a_{ij}]<em>{n \times n}$，$b=[b_i]</em>{n \times 1}$，则方程组可以表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\ \cdots \\ a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n \end{cases}$$
+</div>
+</div>
+</div>
+<p>为了方便计算，我们将方程组表示为矩阵形式$Ax=b$，即：</p>
+<div>
+<div>
+<div>
+$$\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$$
+</div>
+</div>
+</div>
+<p>Jacobi迭代法的基本思想是将$A$分解为$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵。将方程组表示为：</p>
+<div>
+<div>
+<div>
+$$(D-L-U)x=b$$
+</div>
+</div>
+</div>
+<p>其中，$Dx$表示$x$中对角线元素所对应的项，$Lx$和$Ux$分别表示$x$中下三角和上三角元素所对应的项。将上式化为迭代格式：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=D^{-1}(L+U)x^{(k)}+D^{-1}b$$
+</div>
+</div>
+</div>
+<p>其中，$x^{(k)}$表示第$k$次迭代的解向量，$D^{-1}$为$D$的逆矩阵。迭代公式可以表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} x_1^{(k+1)}=\dfrac{b_1-\sum\limits_{j=2}^na_{1j}x_j^{(k)}}{a_{11}} \\ x_2^{(k+1)}=\dfrac{b_2-\sum\limits_{j=1}^{i-1}a_{2j}x_j^{(k)}-\sum\limits_{j=i+1}^na_{2j}x_j^{(k)}}{a_{22}} \\ \cdots \\ x_n^{(k+1)}=\dfrac{b_n-\sum\limits_{j=1}^{n-1}a_{nj}x_j^{(k)}}{a_{nn}} \end{cases}$$
+</div>
+</div>
+</div>
+<p>不断迭代，直至满足精度要求为止。Jacobi迭代法的收敛条件为：矩阵$A$对角线元素不为$0$，且$A$严格对角占优，即对任意$i$，有$|a_{ii}|&gt;\sum\limits_{j=1,j\neq i}^n|a_{ij}|$。</p>
+<h4 id="622-高斯-赛德尔迭代法">6.2.2 高斯-赛德尔迭代法</h4>
+<p>Gauss-Seidel迭代法是一种基于Jacobi迭代法的改进算法。与Jacobi迭代法不同的是，Gauss-Seidel迭代法在迭代时，每次更新$x_i$时都使用最新的$x_{j}(j&lt;i)$值，而不是使用上一次迭代得到的$x_i$值。具体而言，将方程组表示为：</p>
+<div>
+<div>
+<div>
+$$(D-L)x=Ux+b$$
+</div>
+</div>
+</div>
+<p>将其化为迭代格式：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=(D-L)^{-1}Ux^{(k)}+(D-L)^{-1}b$$
+</div>
+</div>
+</div>
+<p>其中，$x^{(k)}$表示第$k$次迭代的解向量。迭代公式可以表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} x_1^{(k+1)}=\dfrac{b_1-\sum\limits_{j=2}^na_{1j}x_j^{(k)}}{a_{11}} \\ x_2^{(k+1)}=\dfrac{b_2-\sum\limits_{j=1}^{i-1}a_{2j}x_j^{(k+1)}-\sum\limits_{j=i+1}^na_{2j}x_j^{(k)}}{a_{22}} \\ \cdots \\ x_n^{(k+1)}=\dfrac{b_n-\sum\limits_{j=1}^{n-1}a_{nj}x_j^{(k+1)}}{a_{nn}} \end{cases}$$
+</div>
+</div>
+</div>
+<p>同样地，不断迭代，直至满足精度要求为止。Gauss-Seidel迭代法的收敛条件为：矩阵$A$对角线元素不为$0$，且$A$严格对角占优或对称正定。</p>
+<h4 id="623-雅克比迭代法与高斯-赛德尔迭代法收敛性">6.2.3 雅克比迭代法与高斯-赛德尔迭代法收敛性</h4>
+<p>对于$n$阶线性方程组，Jacobi迭代法的迭代矩阵为$M_J=D^{-1}(L+U)$，Gauss-Seidel迭代法的迭代矩阵为$M_{GS}=(D-L)^{-1}U$ 。若$A$严格对角占优，则Jacobi迭代法收敛；若$A$对称正定，则$M_{GS}$是对称正定矩阵，Gauss-Seidel迭代法收敛。但对于一般情况，Jacobi迭代法和Gauss-Seidel迭代法的收敛性并不能保证。</p>
+<p>在实际问题中，为了提高迭代速度和收敛性，可以使用超松弛迭代法。超松弛迭代法是在Gauss-Seidel迭代法的基础上引入松弛因子进行加速的算法，其具体原理和公式将在下一节中介绍。</p>
+<h3 id="63-超松弛迭代法">6.3 超松弛迭代法</h3>
+<p>超松弛迭代法（Successive Over-Relaxation，简称SOR）是一种基于Gauss-Seidel迭代法的改进算法，它通过引入松弛因子的概念，加速迭代过程，提高迭代速度和收敛性。</p>
+<h4 id="631-逐次超松弛迭代法">6.3.1 逐次超松弛迭代法</h4>
+<p>考虑线性方程组$Ax=b$， 其中</p>
+<p>\(A=[a_{ij}]<em>{2 2}\)\(b=[b_i]</em>{2 \times n}\)</p>
+<p>则方程组可以表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\ \cdots \\ a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n \end{cases}$$
+</div>
+</div>
+</div>
+<p>为了方便计算，我们将方程组表示为矩阵形式$Ax=b$，即：</p>
+<div>
+<div>
+<div>
+$$\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$$
+</div>
+</div>
+</div>
+<p>Gauss-Seidel迭代法在迭代时，每次更新$x_i$时都使用最新的$x_{j}(j&lt;i)$值，而不是使用上一次迭代得到的$x_i$值。具体而言，将方程组表示为：</p>
+<div>
+<div>
+<div>
+$$(D-L)x=Ux+b$$
+</div>
+</div>
+</div>
+<p>将其化为迭代格式：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=(D-L)^{-1}Ux^{(k)}+(D-L)^{-1}b$$
+</div>
+</div>
+</div>
+<p>其中，$x^{(k)}$表示第$k$次迭代的解向量。迭代公式可以表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} x_1^{(k+1)}=\dfrac{b_1-\sum\limits_{j=2}^na_{1j}x_j^{(k)}}{a_{11}} \\ x_2^{(k+1)}=\dfrac{b_2-\sum\limits_{j=1}^{i-1}a_{2j}x_j^{(k+1)}-\sum\limits_{j=i+1}^na_{2j}x_j^{(k)}}{a_{22}} \\ \cdots \\ x_n^{(k+1)}=\dfrac{b_n-\sum\limits_{j=1}^{n-1}a_{nj}x_j^{(k+1)}}{a_{nn}} \end{cases}$$
+</div>
+</div>
+</div>
+<p>超松弛迭代法在Gauss-Seidel迭代法的基础上，引入松弛因子$\omega$进行加速。具体而言，将迭代公式表示为：</p>
+<div>
+<div>
+<div>
+$$\begin{cases} x_1^{(k+1)}=(1-\omega)x_1^{(k)}+\dfrac{\omega}{a_{11}}(b_1-\sum\limits_{j=2}^na_{1j}x_j^{(k)}) \\ x_2^{(k+1)}=(1-\omega)x_2^{(k)}+\dfrac{\omega}{a_{22}}(b_2-\sum\limits_{j=1}^{i-1}a_{2j}x_j^{(k+1)}-\sum\limits_{j=i+1}^na_{2j}x_j^{(k)}) \\ \cdots \\ x_n^{(k+1)}=(1-\omega)x_n^{(k)}+\dfrac{\omega}{a_{nn}}(b_n-\sum\limits_{j=1}^{n-1}a_{nj}x_j^{(k+1)}) \end{cases}$$
+</div>
+</div>
+</div>
+<p>不断迭代，直至满足精度要求为止。</p>
+<h4 id="632-sor迭代法的收敛性">6.3.2 SOR迭代法的收敛性</h4>
+<p>SOR迭代法的收敛性与松弛因子$\omega$有关。在实际问题中，通常需要通过试验或理论分析来选取一个合适的$\omega$值，使得迭代过程具有较好的收敛性和迭代速度。</p>
+<p>定义迭代矩阵$M_{SOR}=(D-\omega L)^{-1}((1-\omega)D+\omega U)$，则对于任意初值$x^{(0)}$，SOR迭代法收敛的充要条件为：</p>
+<ol>
+<li>$A$对称正定；</li>
+<li>$0&lt;\omega&lt;2$；</li>
+<li>$\rho(M_{SOR})&lt;1$，其中$\rho(M_{SOR})$表示$M_{SOR}$的最大特征值的模。</li>
+</ol>
+<p>在实际问题中，若矩阵$A$不是对称正定，我们可以对其进行预处理，得到一个对称正定的矩阵$B$，然后使用SOR迭代法求解$Bx=B^{-1}b$，从而得到$Ax=b$的近似解。</p>
+<h4 id="633-块迭代法">6.3.3 块迭代法</h4>
+<p>块迭代法是一种将矩阵分块后进行迭代求解的方法，它可以有效地处理大规模线性方程组的求解问题。假设线性方程组的系数矩阵可以表示为：</p>
+<div>
+<div>
+<div>
+$$A=\begin{bmatrix} A_{11} & A_{12} & \cdots & A_{1m} \\ A_{21} & A_{22} & \cdots & A_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ A_{m1} & A_{m2} & \cdots & A_{mm} \end{bmatrix}$$
+</div>
+</div>
+</div>
+<p>其中，$A_{ij}$为$n_i \times n_j$的子矩阵，$n_i$为第$i$个块的行数，$n_j$为第$j$个块的列数，$\sum\limits_{i=1}^mn_i=n$。将方程组表示为：</p>
+<div>
+<div>
+<div>
+$$A_{11}x_1+A_{12}x_2+\cdots+A_{1m}x_m=b_1$$
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+$$A_{21}x_1+A_{22}x_2+\cdots+A_{2m}x_m=b_2$$
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+$$\cdots$$
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+$$A_{m1}x_1+A_{m2}x_2+\cdots+A_{mm}x_m=b_m$$
+</div>
+</div>
+</div>
+<p>块迭代法的基本思想是，将系数矩阵$A$分块，将每个块看作一个整体，然后对每个块分别迭代求解。假设对于第$i$个块，可以将其分解为$A_{ii}=D_i-L_i-U_i$，其中$D_i$为$A_{ii}$的对角线矩阵，$L_i$为$A_{ii}$的下三角矩阵，$U_i$为$A_{ii}$的上三角矩阵，则迭代公式可以表示为：</p>
+<div>
+<div>
+<div>
+$$x_i^{(k+1)}=(D_i-L_i)^{-1}(U_ix_{i+1}^{(k)}+b_i-L_ix_i^{(k+1)})$$
+</div>
+</div>
+</div>
+<p>其中，$x_i^{(k)}$表示第$k$次迭代的第$i$个块的解向量，$x_{i+1}^{(k)}$表示第$k$次迭代的第$i+1$个块的解向量。</p>
+<p>块迭代法的收敛性需要根据具体问题进行分析，一般情况下，块迭代法的收敛性与每个块的对角线元素和非对角线元素的比值有关。若每个块的对角线元素占主导地位，则块迭代法具有较好的收敛性和迭代速度。</p>
+<h3 id="64-共轭梯度法">6.4 共轭梯度法</h3>
+<p>共轭梯度法（Conjugate Gradient Method，简称CG方法）是一种求解对称正定线性方程组的迭代算法。与传统的直接求解方法相比，CG方法具有计算量小、收敛速度快等优点。在实际问题中，对称正定线性方程组是非常常见的，因此CG方法在科学计算、工程计算等领域得到了广泛的应用。</p>
+<h4 id="641-与方程组等价的变分问题">6.4.1 与方程组等价的变分问题</h4>
+<p>考虑对称正定线性方程组$Ax=b$，其中$A$为$n \times n$的对称正定矩阵。对于任意的$x,y \in \mathbb{R}^n$，定义一个二次型函数：</p>
+<div>
+<div>
+<div>
+$$Q(x)=\dfrac{1}{2}x^TAx-b^Tx$$
+</div>
+</div>
+</div>
+<p>则原方程组$Ax=b$可以等价地表示为求解如下变分问题：</p>
+<div>
+<div>
+<div>
+$$\min\limits_{x \in \mathbb{R}^n}Q(x)$$
+</div>
+</div>
+</div>
+<p>即求函数$Q(x)$的最小值点$x^0$。其中，$Q(x)$称为函数$x$的能量函数，$x^*$称为能量函数的稳定点。</p>
+<h4 id="642-最速下降法">6.4.2 最速下降法</h4>
+<p>最速下降法是一种求解无约束优化问题的迭代算法，它的基本思想是在每次迭代中，沿着梯度负方向进行下降，从而逐步逼近最小值点。具体而言，对于能量函数$Q(x)$，在$x^{(k)}$处对其进行泰勒展开，得到：</p>
+<div>
+<div>
+<div>
+$$Q(x)=Q(x^{(k)})+\nabla Q(x^{(k)})^T(x-x^{(k)})+\dfrac{1}{2}(x-x^{(k)})^TH(x^{(k)})(x-x^{(k)})$$
+</div>
+</div>
+</div>
+<p>其中，$H(x^{(k)})$为$Q(x)$在$x^{(k)}$处的Hessian矩阵。令$\nabla Q(x)=Ax-b$，则上式可以表示为：</p>
+<div>
+<div>
+<div>
+$$Q(x)=\dfrac{1}{2}x^TAx-b^Tx+\dfrac{1}{2}x^{(k)T}Ax^{(k)}-b^Tx^{(k)}-(Ax^{(k)}-b)^T(x-x^{(k)})$$
+</div>
+</div>
+</div>
+<p>取导数并令其为$0$，得到：</p>
+<div>
+<div>
+<div>
+$$\nabla Q(x)=Ax-b=Ax^{(k)}-b+A(x-x^{(k)})=A(x-x^{(k)})+\nabla Q(x^{(k)})=0$$
+</div>
+</div>
+</div>
+<p>即迭代公式为：</p>
+<div>
+<div>
+<div>
+$$x^{(k+1)}=x^{(k)}-\alpha_k\nabla Q(x^{(k)})=x^{(k)}-\alpha_k(Ax^{(k)}-b)$$
+</div>
+</div>
+</div>
+<p>其中，$\alpha_k$为步长，可以通过线搜索或其他方式确定。</p>
+<h4 id="643-共轭梯度法cg方法">6.4.3 共轭梯度法（CG方法）</h4>
+<p>最速下降法虽然可以逐步逼近最小值点，但是其在迭代过程中可能会出现“zig-zag”现象，即迭代方向不够优化，导致迭代次数过多。共轭梯度法通过引入共轭方向的概念，解决了这个问题，从而在迭代次数上有了显著的优化。</p>
+<p>假设$x_0$为初始迭代点，$r_0=b-Ax_0$为残差向量，$p_0=r_0$为搜索方向向量，迭代公式为：</p>
+<div>
+<div>
+<div>
+$$x_{k+1}=x_k+\alpha_kp_k$$
+</div>
+</div>
+</div>
+<p>其中，$\alpha_k$为步长，$p_k$为共轭方向向量。共轭方向向量的构造方式如下：</p>
+<div>
+<div>
+<div>
+$$p_k=r_k+\beta_kp_{k-1}$$
+</div>
+</div>
+</div>
+<p>其中，$\beta_k$为共轭方向向量$p_{k-1}$与$r_k$的夹角余弦值，可以表示为：</p>
+<div>
+<div>
+<div>
+$$\beta_k=\dfrac{r_k^Tr_k}{r_{k-1}^Tr_{k-1}}$$
+</div>
+</div>
+</div>
+<p>共轭梯度法的迭代过程如下：</p>
+<ol>
+<li>初始化：$x_0$，$r_0=b-Ax_0$，$p_0=r_0$；</li>
+<li>计算步长：$\alpha_k=\dfrac{r_k^Tr_k}{p_k^TAp_k}$；</li>
+<li>更新解向量：$x_{k+1}=x_k+\alpha_kp_k$；</li>
+<li>更新残差向量：$r_{k+1}=r_k-\alpha_kAp_k$；</li>
+<li>计算共轭方向向量：$\beta_k=\dfrac{r_{k+1}^Tr_{k+1}}{r_k^Tr_k}$，$p_{k+1}=r_{k+1}+\beta_kp_k$；</li>
+<li>若满足终止条件，则停止迭代；否则回到第2步。</li>
+</ol>
+<p>共轭梯度法的终止条件可以是误差精度达到要求，也可以是迭代次数达到要求。</p>
+<p>共轭梯度法的计算复杂度为$O(n)$，相对于传统的直接求解方法，具有较大的优势。在实际问题中，对称正定线性方程组是非常常见的，因此CG方法在科学计算、工程计算等领域得到了广泛的应用。</p>
+
+</main>
+
+
+  <footer>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+        {left: '\\(', right: '\\)', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+  
+  <hr/>
+  © <a href="http://localhost:5601/blog/">Leocl</a> 2022 &ndash; 2024 | <a href="https://github.com/Leo-cl26">Github</a> | <a href="https://www.zhihu.com/people/mmtumr">ZhiHu</a>
+  
+  </footer>
+  </body>
+</html>
+
+<script src="/blog/js/clipboard.js"></script>
+
+
+
+
+

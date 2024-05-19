@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on A minimal Hugo website</title>
+    <title>Notes on Leocl&#39;s blog</title>
     <link>https://leo-cl26.github.io/blog/note/</link>
-    <description>Recent content in Notes on A minimal Hugo website</description>
+    <description>Recent content in Notes on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Another Note on A blogdown Tutorial</title>
-      <link>https://leo-cl26.github.io/blog/note/2017/06/14/another-note/</link>
+      <link>https://leo-cl26.github.io/blog/note/2017/06/14/another-note-on-a-blogdown-tutorial/</link>
       <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/note/2017/06/14/another-note/</guid>
-      <description>I just discovered an awesome tutorial on blogdown written by Alison. I have to admit this is the best blogdown tutorial I have seen so far.</description>
+      <guid>https://leo-cl26.github.io/blog/note/2017/06/14/another-note-on-a-blogdown-tutorial/</guid>
+      <description>6.1 迭代法的基本概念 6.1.1 引言 在实际问题中，线性方程组的解往往不是直接求解得到的，而是通过一些迭代算法来逐步逼近解。迭代法是一种通过递推公式，将原问题转化为逐步逼近的问题，最终达到精度要求的方法。本章将介绍解线性方程组的迭代法。
+6.1.2 向量序列与矩阵序列的极限 在迭代法中，我们需要研究向量序列和矩阵序列的极限。设${x_k}$是向量序列，${A_k}$是矩阵序列，${b_k}$是常向量序列，若存在向量$x$，使得$\lim\limits_{k \to \infty}x_k=x$，则称向量序列${x_k}$收敛于向量$x$，记作$x_k \to x$。若存在矩阵$A$，使得$\lim\limits_{k \to \infty}A_k=A$，则称矩阵序列${A_k}$收敛于矩阵$A$，记作$A_k \to A$。
+6.1.3 迭代法及其收敛性 设$Ax=b$是线性方程组，$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵，若$\det(D) \neq 0$，则原方程组的解为$x=A^{-1}b$。考虑用迭代法求解该方程组，即构造如下迭代格式：
+$$x^{(k+1)}=Mx^{(k)}+N$$其中，$M$为系数矩阵，$N$为常向量，$x^{(k)}$为第$k$次迭代的解向量。将$x^{(k+1)}$代入迭代公式得：
+$$x^{(k+1)}=Mx^{(k)}+N=M(Mx^{(k-1)}+N)+N=M^2x^{(k-1)}+(I+M)N=M^3x^{(k-2)}+(I+M+M^2)N=\cdots$$可知，第$k$次迭代的解向量可表示为：
+$$x^{(k)}=M^kx^{(0)}+(I+M+M^2+\cdots+M^{k-1})N$$其中，$x^{(0)}$为初值向量。为保证迭代法的收敛性，需要满足$||M||&amp;lt;1$，其中$||\cdot||$为矩阵范数。若$||M||&amp;lt;1$，则对任意初值向量$x^{(0)}$，迭代序列${x^{(k)}}$均收敛于方程组的解$x$。
+常见的迭代法有Jacobi迭代法、Gauss-Seidel迭代法和超松弛迭代法。其中，Jacobi迭代法和Gauss-Seidel迭代法是最基本的线性方程组迭代法，超松弛迭代法是在Gauss-Seidel迭代法的基础上引入松弛因子进行加速的算法。
+6.2 雅克比迭代法与高斯-赛德尔迭代法 6.2.1 雅克比迭代法 Jacobi迭代法是一种最基本的线性方程组迭代法。设线性方程组$Ax=b$，其中$A=[a_{ij}]{n \times n}$，$b=[b_i]{n \times 1}$，则方程组可以表示为：
+$$\begin{cases} a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\ \cdots \\ a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n \end{cases}$$为了方便计算，我们将方程组表示为矩阵形式$Ax=b$，即：
+$$\begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$$Jacobi迭代法的基本思想是将$A$分解为$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵。将方程组表示为：</description>
     </item>
     
     <item>
       <title>A Quick Note on Two Beautiful Websites</title>
-      <link>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note/</link>
+      <link>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note-on-two-beautiful-websites/</link>
       <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note/</guid>
-      <description>To me, the two most impressive websites based on blogdown are:
-Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al. I&amp;rsquo;m sure there will be more.</description>
+      <guid>https://leo-cl26.github.io/blog/note/2017/06/13/a-quick-note-on-two-beautiful-websites/</guid>
+      <description>Code Blocks Code block with backticks &amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;Code block indented with four spaces &amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;Code block with Hugo&amp;rsquo;s internal highlight shortcode &amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Diff code block [dependencies.bevy]git = &amp;quot;https://github.</description>
     </item>
     
   </channel>

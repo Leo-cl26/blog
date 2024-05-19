@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on A minimal Hugo website</title>
+    <title>Categories on Leocl&#39;s blog</title>
     <link>https://leo-cl26.github.io/blog/categories/</link>
-    <description>Recent content in Categories on A minimal Hugo website</description>
+    <description>Recent content in Categories on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example</title>
-      <link>https://leo-cl26.github.io/blog/categories/example/</link>
-      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <title>数值计算方法</title>
+      <link>https://leo-cl26.github.io/blog/categories/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/categories/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://leo-cl26.github.io/blog/categories/hugo/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://leo-cl26.github.io/blog/categories/hugo/</guid>
+      <guid>https://leo-cl26.github.io/blog/categories/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/</guid>
       <description></description>
     </item>
     

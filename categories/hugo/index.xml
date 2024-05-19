@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on A minimal Hugo website</title>
+    <title>Hugo on Leocl&#39;s blog</title>
     <link>https://leo-cl26.github.io/blog/categories/hugo/</link>
-    <description>Recent content in Hugo on A minimal Hugo website</description>
+    <description>Recent content in Hugo on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Feb 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,13 @@
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>https://leo-cl26.github.io/blog/post/2016/02/14/a-plain-markdown-post/</guid>
-      <description>This sample post is mainly for blogdown users. If you do not use blogdown, you can skip the first section.
-1. Markdown or R Markdown This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
-You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Goldmark by default, and an R Markdown document is compiled by rmarkdown and Pandoc.</description>
+      <description>2.1 引言 2.1.1 插值问题的提出 在数值计算中，经常需要在一些已知数据点之间进行插值，即求出一个函数在这些点上的取值，这个问题被称为插值问题。插值问题的应用非常广泛，例如在科学计算中，需要通过实验数据来拟合出一个函数模型，以便进行预测和分析；在工程计算中，需要通过已知数据点来计算出某些未知参数的值。
+2.1.2 多项式插值 多项式插值是一种常用的插值方法，它的基本思想是通过已知数据点构造一个多项式函数，使得这个多项式函数在这些点上与原函数的值相等。多项式插值的优点是简单易用，计算速度快，但是它也存在一些缺点，例如多项式插值可能会出现龙格现象，即在插值点附近出现振荡现象，这会导致插值函数的精度下降。
+2.2 拉格朗日插值 2.2.1 线性插值与抛物线插值 线性插值和抛物线插值是最简单的插值方法，它们分别对应于一次和二次多项式插值。
+线性插值是通过已知的两个数据点 $(x_0, y_0)$ 和 $(x_1, y_1)$ 来构造一个一次多项式函数 $P_1(x)$，使得 $P_1(x_0) = y_0$，$P_1(x_1) = y_1$。根据一次多项式的形式，$P_1(x)$ 可以表示为：
+$$ P_1(x) = y_0 + \frac{y_1 - y_0}{x_1 - x_0}(x - x_0) $$
+抛物线插值是通过已知的三个数据点 $(x_0, y_0)$，$(x_1, y_1)$ 和 $(x_2, y_2)$ 来构造一个二次多项式函数 $P_2(x)$，使得 $P_2(x_0) = y_0$，$P_2(x_1) = y_1$，$P_2(x_2) = y_2$。根据二次多项式的形式，$P_2(x)$ 可以表示为：
+$$ P_2(x) = y_0\frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} + y_1\frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)} + y_2\frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)} $$</description>
     </item>
     
   </channel>

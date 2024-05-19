@@ -1,63 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on A minimal Hugo website</title>
+    <title>Tags on Leocl&#39;s blog</title>
     <link>https://leo-cl26.github.io/blog/tags/</link>
-    <description>Recent content in Tags on A minimal Hugo website</description>
+    <description>Recent content in Tags on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://leo-cl26.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tutorial</title>
-      <link>https://leo-cl26.github.io/blog/tags/tutorial/</link>
-      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <title>理论</title>
+      <link>https://leo-cl26.github.io/blog/tags/%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/tags/tutorial/</guid>
+      <guid>https://leo-cl26.github.io/blog/tags/%E7%90%86%E8%AE%BA/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>blogdown</title>
-      <link>https://leo-cl26.github.io/blog/tags/blogdown/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+      <title>课内</title>
+      <link>https://leo-cl26.github.io/blog/tags/%E8%AF%BE%E5%86%85/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://leo-cl26.github.io/blog/tags/blogdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>https://leo-cl26.github.io/blog/tags/markdown/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://leo-cl26.github.io/blog/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MathJax</title>
-      <link>https://leo-cl26.github.io/blog/tags/mathjax/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://leo-cl26.github.io/blog/tags/mathjax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pandoc</title>
-      <link>https://leo-cl26.github.io/blog/tags/pandoc/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://leo-cl26.github.io/blog/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio</title>
-      <link>https://leo-cl26.github.io/blog/tags/rstudio/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://leo-cl26.github.io/blog/tags/rstudio/</guid>
+      <guid>https://leo-cl26.github.io/blog/tags/%E8%AF%BE%E5%86%85/</guid>
       <description></description>
     </item>
     

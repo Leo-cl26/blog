@@ -1,11 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A Plain Markdown Post | A minimal Hugo website</title>
+    <title>A Plain Markdown Post | Leocl&#39;s blog</title>
     <link rel="stylesheet" href="/blog/css/style.css" />
     <link rel="stylesheet" href="/blog/css/fonts.css" />
+    
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Leo-cl26/picture_bed@main/202405191648914.png" />
     
   </head>
 
@@ -21,172 +25,368 @@
       
       <li><a href="/blog/tags/">Tags</a></li>
       
-      <li><a href="/blog/index.xml">Subscribe</a></li>
-      
     </ul>
     <hr/>
     </nav>
 
+
+
 <div class="article-meta">
-<h1><span class="title">A Plain Markdown Post</span></h1>
-<h2 class="author">Yihui Xie</h2>
-<h2 class="date">2016/02/14</h2>
+    <h1><span class="title">A Plain Markdown Post</span></h1>
+    
+    <h2 class="date">2016/02/14</h2>
 </div>
 
+
 <main>
-<p>This sample post is mainly for
-<a href="https://github.com/rstudio/blogdown"><strong>blogdown</strong></a> users. If you do not use
-<strong>blogdown</strong>, you can skip the first section.</p>
-<h1 id="1-markdown-or-r-markdown">1. Markdown or R Markdown</h1>
-<p>This is a post written in plain Markdown (<code>*.md</code>) instead of R Markdown
-(<code>*.Rmd</code>). The major differences are:</p>
+    
+    <h3 id="21-引言">2.1 引言</h3>
+<h4 id="211-插值问题的提出">2.1.1 插值问题的提出</h4>
+<p>在数值计算中，经常需要在一些已知数据点之间进行插值，即求出一个函数在这些点上的取值，这个问题被称为插值问题。插值问题的应用非常广泛，例如在科学计算中，需要通过实验数据来拟合出一个函数模型，以便进行预测和分析；在工程计算中，需要通过已知数据点来计算出某些未知参数的值。</p>
+<h4 id="212-多项式插值">2.1.2 多项式插值</h4>
+<p>多项式插值是一种常用的插值方法，它的基本思想是通过已知数据点构造一个多项式函数，使得这个多项式函数在这些点上与原函数的值相等。多项式插值的优点是简单易用，计算速度快，但是它也存在一些缺点，例如多项式插值可能会出现龙格现象，即在插值点附近出现振荡现象，这会导致插值函数的精度下降。</p>
+<h3 id="22-拉格朗日插值">2.2 拉格朗日插值</h3>
+<h4 id="221-线性插值与抛物线插值">2.2.1 线性插值与抛物线插值</h4>
+<p>线性插值和抛物线插值是最简单的插值方法，它们分别对应于一次和二次多项式插值。</p>
+<p>线性插值是通过已知的两个数据点 $(x_0, y_0)$ 和 $(x_1, y_1)$ 来构造一个一次多项式函数 $P_1(x)$，使得 $P_1(x_0) = y_0$，$P_1(x_1) = y_1$。根据一次多项式的形式，$P_1(x)$ 可以表示为：</p>
+<p>$$
+P_1(x) = y_0 + \frac{y_1 - y_0}{x_1 - x_0}(x - x_0)
+$$</p>
+<p>抛物线插值是通过已知的三个数据点 $(x_0, y_0)$，$(x_1, y_1)$ 和 $(x_2, y_2)$ 来构造一个二次多项式函数 $P_2(x)$，使得 $P_2(x_0) = y_0$，$P_2(x_1) = y_1$，$P_2(x_2) = y_2$。根据二次多项式的形式，$P_2(x)$ 可以表示为：</p>
+<p>$$
+P_2(x) = y_0\frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} + y_1\frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)} + y_2\frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)}
+$$</p>
+<h4 id="222-拉格朗日插值多项式">2.2.2 拉格朗日插值多项式</h4>
+<p>拉格朗日插值是一种通用的多项式插值方法，它可以通过已知的 $n+1$ 个数据点 $(x_0, y_0)$，$(x_1, y_1)$，$\cdots$，$(x_n, y_n)$ 来构造一个 $n$ 次多项式函数 $P_n(x)$，使得 $P_n(x_i) = y_i$，$i=0,1,\cdots,n$。拉格朗日插值多项式的形式为：</p>
+<p>$$
+P_n(x) = \sum_{i=0}^n y_i l_i(x)
+$$</p>
+<p>其中 $l_i(x)$ 是拉格朗日基函数，定义为：</p>
+<p>$$
+l_i(x) = \prod_{j=0,j\neq i}^n \frac{x - x_j}{x_i - x_j}
+$$</p>
+<h4 id="223-插值余项与误差估计">2.2.3 插值余项与误差估计</h4>
+<p>在实际应用中，我们通常需要对插值函数的误差进行估计，以便评估插值函数的精度和可靠性。插值余项是一种常用的误差估计方法，它表示插值函数与原函数之间的差异，可以用来估计插值函数的误差。</p>
+<p>对于拉格朗日插值多项式 $P_n(x)$，插值余项可以表示为：</p>
+<p>$$
+R_n(x) = f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{i=0}^n (x - x_i)
+$$</p>
+<p>其中 $\xi$ 是介于 $x_0$ 和 $x_n$ 之间的某个数并且通常是未知的。插值余项的大小取决于原函数的高阶导数和插值点的位置，当插值点越接近 $\xi$ 时，插值余项越小，插值函数的精度越高。</p>
+<p>插值余项的推导过程如下：</p>
+<p>由$R_n(x)$的性质有在$x_k(k=0,1,&hellip;,n)$上均为零，可以得到：
+$$
+R_n(x) = K(x)\prod_{i=0}^n (x - x_i)
+$$</p>
+<p>构造函数$\varphi(t)=f(x) - P_n(x)-K(x)\prod_{i=0}^n (x - x_i)$ ，由罗尔定理有$\varphi^{(n+1)}$在区间内至少有一个零点，取该零点为$\xi$，有：
+$$
+\varphi^{(n+1)}(\xi)=f^{(n+1)}(\xi)-(n+1)!K(x)=0
+$$</p>
+<p>即有：
+$$
+K(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}
+$$</p>
+<h3 id="23-均差与牛顿插值多项式">2.3 均差与牛顿插值多项式</h3>
+<h4 id="231-插值多项式的逐次生成">2.3.1 插值多项式的逐次生成</h4>
+<p>均差是一种逐次生成插值多项式的方法，它可以通过已知的 $n+1$ 个数据点 $(x_0, y_0)$，$(x_1, y_1)$，$\cdots$，$(x_n, y_n)$ 来构造一个 $n$ 次多项式函数 $P_n(x)$，使得 $P_n(x_i) = y_i$，$i=0,1,\cdots,n$。均差的基本思想是逐步增加插值点，每次增加一个插值点，就在原来的插值多项式的基础上构造一个新的插值多项式，直到得到最终的 $n$ 次插值多项式。</p>
+<p>均差的具体步骤如下：</p>
 <ol>
-<li>You cannot run any R code in a plain Markdown document, whereas in an R
-Markdown document, you can embed R code chunks (<code>```{r}</code>);</li>
-<li>A plain Markdown post is rendered through
-<a href="https://gohugo.io/overview/configuration/">Goldmark</a> by default, and an R
-Markdown document is compiled by
-<a href="http://rmarkdown.rstudio.com"><strong>rmarkdown</strong></a> and
-<a href="http://pandoc.org">Pandoc</a>.</li>
-</ol>
-<p>There are differences in syntax between Goldmark&rsquo;s Markdown and Pandoc&rsquo;s
-Markdown. For example, Goldmark does not support LaTeX math and Pandoc does. I
-have added the KaTeX support to this theme (i.e.,
-<a href="https://github.com/yihui/hugo-xmin">hugo-xmin</a>)</p>
-<p>As of Hugo v0.122.0, you can enable typesetting (\LaTeX) math in Markdown using
-the standard syntax. To do so, you have make use of the goldmark <code>passthrough</code>
-extension inside your config file (e.g., <code>hugo.yaml</code>). Afterwards you can use
-standard (\TeX) syntax (inline: <code>\( ... \)</code>; display style: <code>$$ ... $$</code>) to
-display formulae, e.g., (S_n = \sum_{i=1}^n X_i). For details, please refer to
-the official <a href="https://gohugo.io/content-management/mathematics/">Hugo docs</a>.
-Alternatively, you may see
-<a href="https://yihui.org/en/2018/07/latex-math-markdown/">this post</a> for a general
-solution, which works with any Hugo version and requires no configuration.</p>
-<p>When creating a new post, you have to decide whether the post format is Markdown
-or R Markdown, and this can be done via the <code>rmd</code> argument of the function
-<code>blogdown::new_post()</code>, e.g.</p>
-<pre><code class="language-r">blogdown::new_post(&quot;Post Title&quot;, rmd = FALSE)
-</code></pre>
-<p>Actually I recommend you to use the RStudio addin &ldquo;New Post&rdquo; instead:</p>
-<p><img src="https://bookdown.org/yihui/blogdown/images/new-post.png" alt="RStudio addin New Post"></p>
-<h1 id="2-sample-text">2. Sample Text</h1>
-<h2 id="second-level-header">Second-level header</h2>
-<h3 id="third-level-header">Third-level header</h3>
-<h4 id="fourth-level-header">Fourth-level header</h4>
-<p>A paragraph (with a footnote):</p>
-<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore <em>magna aliqua</em>. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-sunt in culpa qui officia deserunt mollit anim id est laborum.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<p>A blockquote (a gray bar at the left and lightgray background):</p>
-<blockquote>
-<p>Quisque mattis volutpat lorem vitae feugiat. Praesent porta est quis porta
-imperdiet. Aenean porta, mi non cursus volutpat, mi est mollis libero, id
-suscipit orci urna a augue. In fringilla euismod lacus, vitae tristique massa
-ultricies vitae. Mauris accumsan ligula tristique, viverra nulla sed, porta
-sapien. Vestibulum facilisis nec nisl blandit convallis. Maecenas venenatis
-porta malesuada. Ut ac erat tortor. Orci varius natoque penatibus et magnis
-dis parturient montes, nascetur ridiculus mus. Nulla sodales quam sit amet
-tincidunt egestas. In et turpis at orci vestibulum ullamcorper. Aliquam sed
-ante libero. Sed hendrerit arcu lacus.</p>
-</blockquote>
-<p>Some code (with a drop-shadow effect):</p>
-<pre><code class="language-js">(function() {
-  var quotes = document.getElementsByTagName('blockquote'), i, quote;
-  for (i = 0; i &lt; quotes.length; i++) {
-    quote = quotes[i];
-    var n = quote.children.length;
-    if (n === 0) continue;
-    var el = quote.children[n - 1];
-    if (!el || el.nodeName !== 'P') continue;
-    // right-align a quote footer if it starts with ---
-    if (/^—/.test(el.textContent)) el.style.textAlign = 'right';
-  }
-})();
-</code></pre>
-<p>A table (centered by default):</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Sepal.Length</th>
-<th style="text-align:right">Sepal.Width</th>
-<th style="text-align:right">Petal.Length</th>
-<th style="text-align:right">Petal.Width</th>
-<th style="text-align:left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">5.1</td>
-<td style="text-align:right">3.5</td>
-<td style="text-align:right">1.4</td>
-<td style="text-align:right">0.2</td>
-<td style="text-align:left">setosa</td>
-</tr>
-<tr>
-<td style="text-align:right">4.9</td>
-<td style="text-align:right">3.0</td>
-<td style="text-align:right">1.4</td>
-<td style="text-align:right">0.2</td>
-<td style="text-align:left">setosa</td>
-</tr>
-<tr>
-<td style="text-align:right">4.7</td>
-<td style="text-align:right">3.2</td>
-<td style="text-align:right">1.3</td>
-<td style="text-align:right">0.2</td>
-<td style="text-align:left">setosa</td>
-</tr>
-<tr>
-<td style="text-align:right">4.6</td>
-<td style="text-align:right">3.1</td>
-<td style="text-align:right">1.5</td>
-<td style="text-align:right">0.2</td>
-<td style="text-align:left">setosa</td>
-</tr>
-<tr>
-<td style="text-align:right">5.0</td>
-<td style="text-align:right">3.6</td>
-<td style="text-align:right">1.4</td>
-<td style="text-align:right">0.2</td>
-<td style="text-align:left">setosa</td>
-</tr>
-<tr>
-<td style="text-align:right">5.4</td>
-<td style="text-align:right">3.9</td>
-<td style="text-align:right">1.7</td>
-<td style="text-align:right">0.4</td>
-<td style="text-align:left">setosa</td>
-</tr>
-</tbody>
-</table>
-<p>An image (automatically centered when it is appropriate):</p>
-<p><img src="https://slides.yihui.org/gif/happy-elmo.gif" alt="Happy Elmo"></p>
-<p>Looks good?</p>
-<div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1">
-<p>I&rsquo;m sure you are bored by the text here.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li>
+<p>令 $f[x_i] = y_i$，$i=0,1,\cdots,n$。</p>
+</li>
+<li>
+<p>对于 $k=1,2,\cdots,n$，计算 $k$ 阶均差：</p>
+<p>$$
+f[x_i, x_{i+1}, \cdots, x_{i+k}] = \frac{f[x_{i+1}, x_{i+2}, \cdots, x_{i+k}] - f[x_i, x_{i+1}, \cdots, x_{i+k-1}]}{x_{i+k} - x_i}
+$$</p>
+</li>
+<li>
+<p>根据均差的定义，可以得到插值多项式的递推公式：</p>
+<p>$$
+P_k(x) = f[x_0] + \sum_{i=1}^k f[x_0, x_1, \cdots, x_i] \prod_{j=0}^{i-1} (x - x_j)
+$$</p>
+</li>
+<li>
+<p>最终的 $n$ 次插值多项式为 $P_n(x)$。</p>
 </li>
 </ol>
+<h4 id="232-均差及其性质">2.3.2 均差及其性质</h4>
+<p>均差是均差方法的核心概念，它表示插值点之间的差异程度。对于 $n+1$ 个数据点 $(x_0, y_0)$，$(x_1, y_1)$，$\cdots$，$(x_n, y_n)$，$n$阶均值可以通过如下公式计算：</p>
+<p>$$
+f[x_0, x_{1}, \cdots, x_{n}] = \frac{f^{(n)}(\xi)}{n!}
+$$</p>
+<p>这个公式可以使用数学归纳法简单地证明。</p>
+<p>均差具有以下性质：</p>
+<ol>
+<li>
+<p>对于任意 $i=0,1,\cdots,n$，$f[x_i] = y_i$。</p>
+</li>
+<li>
+<p>对于任意 $i=0,1,\cdots,n-k$，$f[x_i, x_{i+1}, \cdots, x_{i+k}]$ 可以通过 $f[x_i, x_{i+1}, \cdots, x_{i+k-1}]$ 和 $f[x_{i+1}, x_{i+2}, \cdots, x_{i+k}]$ 递推得到。</p>
+</li>
+<li>
+<p>对于任意 $i=0,1,\cdots,n-k$，$f[x_i, x_{i+1}, \cdots, x_{i+k}]$ 与 $f[x_{i+1}, x_{i+2}, \cdots, x_{i+k+1}]$ 只有一个插值点不同，即 $x_i$ 和 $x_{i+k+1}$，因此它们之间存在如下关系：</p>
+<p>$$
+f[x_i, x_{i+1}, \cdots, x_{i+k}] - f[x_{i+1}, x_{i+2}, \cdots, x_{i+k+1}] = \frac{f[x_{i}, x_{i+1}, \cdots, x_{i+k-1}, x_{i+k+1}] - f[x_{i+1}, x_{i+2}, \cdots, x_{i+k}]}{x_{i+k+1} - x_i}
+$$</p>
+</li>
+</ol>
+<h4 id="233-牛顿插值多项式">2.3.3 牛顿插值多项式</h4>
+<p>牛顿插值多项式是一种基于均差的插值方法，它可以通过已知的 $n+1$ 个数据点 $(x_0, y_0)$，$(x_1, y_1)$，$\cdots$，$(x_n, y_n)$ 来构造一个 $n$ 次多项式函数 $P_n(x)$，使得 $P_n(x_i) = y_i$，$i=0,1,\cdots,n$。牛顿插值多项式的形式为：</p>
+<p>$$
+P_n(x) = f[x_0] + \sum_{i=1}^n f[x_0, x_1, \cdots, x_i] \prod_{j=0}^{i-1} (x - x_j)
+$$</p>
+<h4 id="234-差分形式的牛顿插值公式">2.3.4 差分形式的牛顿插值公式</h4>
+<p>差分形式的牛顿插值公式是一种简化的牛顿插值方法，它可以通过已知的 $n+1$ 个数据点 $(x_0, y_0)$，$(x_1, y_1)$，$\cdots$，$(x_n, y_n)$ 来构造一个 $n$ 次多项式函数 $P_n(x)$，使得 $P_n(x_i) = y_i$，$i=0,1,\cdots,n$。差分形式的牛顿插值公式的形式为：</p>
+<p>$$
+P_n(x) = y_0 + \sum_{i=1}^n \Delta^i y_0 \prod_{j=0}^{i-1} (x - x_j)
+$$</p>
+<p>其中 $\Delta^i y_0$ 表示 $y_0$ 的 $i$ 阶差分，可以通过递推公式 $\Delta^i y_0 = \Delta^{i-1} y_1 - \Delta^{i-1} y_0$ 来计算。</p>
+<h3 id="24埃米尔特插值">2.4. 埃米尔特插值</h3>
+<h4 id="241-重节点均差与泰勒插值">2.4.1. 重节点均差与泰勒插值</h4>
+<h5 id="重节点均差">重节点均差</h5>
+<p>对于一个$n+1$次多项式$f(x)$，如果我们已知$f(x)$在$n+1$个节点$x_0,x_1,\cdots,x_n$上的函数值$f(x_0),f(x_1),\cdots,f(x_n)$，那么我们可以用拉格朗日插值公式求出$f(x)$在任意$x$处的函数值：</p>
+<p>$$
+f(x)=\sum_{i=0}^n f(x_i) \prod_{j=0,j\neq i}^n \frac{x-x_j}{x_i-x_j}
+$$</p>
+<p>但是，如果我们已知的是$f(x)$在$x_0,x_1,\cdots,x_n$上的导数$f&rsquo;(x_0),f&rsquo;(x_1),\cdots,f&rsquo;(x_n)$，那么我们可以用重节点均差公式求出$f(x)$在任意$x$处的函数值：</p>
+<p>$$
+f(x)=f(x_0)+f<a href="x-x_0">x_0,x_1</a>+f<a href="x-x_0">x_0,x_1,x_2</a>(x-x_1)+\cdots+f<a href="x-x_0">x_0,x_1,\cdots,x_n</a>(x-x_1)\cdots(x-x_{n-1})
+$$</p>
+<p>其中，$f[x_0,x_1]$表示$f(x)$在$x_0,x_1$上的差商，$f[x_0,x_1,x_2]$表示$f(x)$在$x_0,x_1,x_2$上的三阶差商，以此类推。</p>
+<h5 id="泰勒插值">泰勒插值</h5>
+<p>泰勒插值是一种特殊的插值方法，它是在某个点$x_0$处对$f(x)$进行泰勒展开，然后用展开式的前$n+1$项作为插值多项式。具体地，设$f(x)$在$x_0$处有$n+1$阶导数$f(x_0),f&rsquo;(x_0),\cdots,f^{(n)}(x_0)$，那么$f(x)$在$x_0$处的泰勒展开式为：</p>
+<p>$$
+f(x)=\sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+R_n(x)
+$$</p>
+<p>其中，$R_n(x)$为余项，满足：</p>
+<p>$$
+R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
+$$</p>
+<p>其中，$\xi$为$x_0$和$x$之间的某个点。</p>
+<p>将泰勒展开式中的前$n+1$项作为插值多项式，得到：</p>
+<p>$$
+f(x)=f(x_0)+f&rsquo;(x_0)(x-x_0)+\frac{f&rsquo;&rsquo;(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n
+$$</p>
+<h4 id="242-两个典型的埃米尔特插值">2.4.2. 两个典型的埃米尔特插值</h4>
+<h5 id="简单三点埃米尔特插值">简单三点埃米尔特插值</h5>
+<p>考虑满足条件 $P\left(x_i\right)=f\left(x_i\right)(i=0,1,2)$ 及 $P^{\prime}\left(x_1\right)=f^{\prime}\left(x_1\right)$ 的插值多项式及其余项表达式。</p>
+<p>由给定条件, 可确定次数不超过 3 的插值多项式。由于此多项式通过点 $\left(x_0, f\left(x_0\right)\right)$，$\left(x_1, f\left(x_1\right)\right)$ 及 $\left(x_2, f\left(x_2\right)\right)$，故其形式为：
+$$
+\begin{aligned}
+P(x)= &amp; f\left(x_0\right)+f\left[x_0, x_1\right]\left(x-x_0\right) \
+&amp; +f\left[x_0, x_1, x_2\right]\left(x-x_0\right)\left(x-x_1\right)+A\left(x-x_0\right)\left(x-x_1\right)\left(x-x_2\right),
+\end{aligned}
+$$</p>
+<p>其中 $A$ 为待定常数，可由条件 $P^{\prime}\left(x_1\right)=f^{\prime}\left(x_1\right)$ 确定，通过计算可得：
+$$
+A=\frac{f^{\prime}\left(x_1\right)-f\left[x_0, x_1\right]-\left(x_1-x_0\right) f\left[x_0, x_1, x_2\right]}{\left(x_1-x_0\right)\left(x_1-x_2\right)} .
+$$</p>
+<p>和拉格朗日插值余项的推导方法相同，余项表达式为：
+$$
+R(x)=\frac{1}{4 !} f^{(4)}(\xi)\left(x-x_0\right)\left(x-x_1\right)^2\left(x-x_2\right),
+$$</p>
+<h5 id="两点三次埃米尔特插值">两点三次埃米尔特插值</h5>
+<p>另一个典型例子是两点三次埃尔米特插值, 插值节点取为 $x_k$ 及 $x_{k+1}$, 插值多项式为 $H_3(x)$，满足：
+$$
+\left{\begin{array}{ll}
+H_3\left(x_k\right)=y_k, &amp; H_3\left(x_{k+1}\right)=y_{k+1} \
+H_3^{\prime}\left(x_k\right)=m_k, &amp; H_3^{\prime}\left(x_{k+1}\right)=m_{k+1}
+\end{array}\right.
+$$
+采用基函数方法，令：
+$$
+H_3(x)=\alpha_3(x) y_k+\alpha_{k+1}(x) y_{k+1}+\beta_k(x) m_k+\beta_{k+1}(x) m_{k+1},
+$$</p>
+<p>其中 $\alpha_k(x), \alpha_{k+1}(x), \beta_k(x), \beta_{k+1}(x)$ 是关于节点 $x_k$ 及 $x_{k+1}$ 的三次埃尔米特插值基函数，它们应分别满足条件：
+$$
+\begin{aligned}
+&amp; \alpha_k\left(x_k\right)=1, \quad \alpha_k\left(x_{k+1}\right)=0, \quad \alpha_k^{\prime}\left(x_k\right)=\alpha_k^{\prime}\left(x_{k+1}\right)=0 ; \
+&amp; \alpha_{k+1}\left(x_k\right)=0, \quad \alpha_{k+1}\left(x_{k+1}\right)=1, \quad \alpha_{k+1}^{\prime}\left(x_k\right)=\alpha_{k+1}^{\prime}\left(x_{k+1}\right)=0 ;\
+&amp; \beta_k\left(x_k\right)=\beta_k\left(x_{k+1}\right)=0, \quad \beta_k^{\prime}\left(x_k\right)=1, \quad \beta_k^{\prime}\left(x_{k+1}\right)=0 ; \
+&amp; \beta_{k+1}\left(x_k\right)=\beta_{k+1}\left(x_{k+1}\right)=0, \quad \beta_{k+1}^{\prime}\left(x_k\right)=0, \quad \beta_{k+1}\left(x_{k+1}\right)=1 .
+\end{aligned}
+$$</p>
+<p>最后得到：
+$$
+\begin{aligned}
+H_3(x)= &amp; \left(1+2 \frac{x-x_k}{x_{k+1}-x_k}\right)\left(\frac{x-x_{k+1}}{x_k-x_{k+1}}\right)^2 y_k+\left(1+2 \frac{x-x_{k+1}}{x_k-x_{k+1}}\right)\left(\frac{x-x_k}{x_{k+1}-x_k}\right)^2 y_{k+1} \
+&amp; +\left(x-x_k\right)\left(\frac{x-x_{k+1}}{x_k-x_{k+1}}\right)^2 m_k+\left(x-x_{k+1}\right)\left(\frac{x-x_k}{x_{k+1}-x_k}\right)^2 m_{k+1},
+\end{aligned}
+$$</p>
+<p>同理，余项为：
+$$
+R_3(x)=\frac{1}{4 !} f^{(4)}(\xi)\left(x-x_k\right)^2\left(x-x_{k+1}\right)^2, \quad \xi \in\left(x_k, x_{k+1}\right) .
+$$</p>
+<h3 id="25-分段低次插值">2.5. 分段低次插值</h3>
+<p>在实际问题中，我们往往需要对一段连续函数进行插值，但是高次插值多项式在插值区间外的行为很难控制，容易产生病态现象。因此，我们可以考虑将插值区间分成若干个小区间，对每个小区间内的函数进行低次插值，从而得到整个连续函数的近似值。这就是分段低次插值的思想。</p>
+<h4 id="251-高次差值的病态性质">2.5.1. 高次差值的病态性质</h4>
+<p>高次插值多项式容易产生龙格现象和外推现象，从而导致插值误差的急剧增加。</p>
+<p>龙格现象：随着插值节点数的增加，插值多项式在插值区间边缘处的振荡会越来越剧烈，从而导致插值误差的急剧增加。这种现象可以用以下公式表示：</p>
+<p>$$
+\lim_{n\to\infty}\max_{x\in[a,b]}|f(x)-p_n(x)|=\infty
+$$</p>
+<p>其中，$f(x)$ 是被插值函数，$p_n(x)$ 是 $n$ 次插值多项式。</p>
+<p>外推现象：在插值区间外，高次插值多项式的行为很难控制，容易产生剧烈的振荡，从而导致插值误差的急剧增加。这种现象可以用以下公式表示：</p>
+<p>$$
+\lim_{|x-x_i|\to\infty}|f(x)-p_n(x)|=\infty
+$$</p>
+<p>其中，$f(x)$ 是被插值函数，$p_n(x)$ 是 $n$ 次插值多项式，$x_i$ 是插值节点。</p>
+<p>龙格现象和外推现象的数学原因可以通过插值多项式的误差公式来解释。</p>
+<p>对于 $n$ 次插值多项式 $p_n(x)$，它与被插值函数 $f(x)$ 的误差为：</p>
+<p>$$
+f(x)-p_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{i=0}^n(x-x_i)
+$$</p>
+<p>其中，$\xi$ 是介于 $x_0$ 和 $x_n$ 之间的某个数。这个公式表明，误差的大小与插值节点的间距以及被插值函数的高阶导数有关。</p>
+<p>对于龙格现象，随着插值节点数的增加，插值节点的间距会减小，从而导致误差公式中的 $\prod_{i=0}^n(x-x_i)$ 的值越来越大，误差也会越来越大。同时，被插值函数的高阶导数在插值区间边缘处可能会变化很大，从而进一步增加误差。</p>
+<p>对于外推现象，插值多项式在插值区间外的行为很难控制，因为误差公式中的 $\prod_{i=0}^n(x-x_i)$ 的值会随着 $|x-x_i|$ 的增加而急剧增大，从而导致误差也急剧增大。此外，被插值函数在插值区间外的行为也很难控制，可能会产生剧烈的振荡，进一步增加误差。</p>
+<h4 id="252-分段线性插值">2.5.2. 分段线性插值</h4>
+<p>分段线性插值是一种简单而有效的分段低次插值方法。它的基本思想是将插值区间分成若干个小区间，对每个小区间内的函数进行线性插值，从而得到整个连续函数的近似值。</p>
+<p>具体来说，假设我们要对函数 $f(x)$ 在区间 $[a,b]$ 上进行插值，将插值区间分成 $n$ 个小区间，每个小区间的长度为 $h=(b-a)/n$，则第 $i$ 个小区间的插值函数为：</p>
+<p>$$
+p_i(x)=\frac{f(x_{i+1})-f(x_i)}{h}(x-x_i)+f(x_i)
+$$</p>
+<p>其中，$x_i=a+ih$，$i=0,1,\ldots,n-1$。整个连续函数的近似值为：</p>
+<p>$$
+p(x)=\left{
+\begin{aligned}
+&amp;p_0(x),\quad x\in[x_0,x_1]\
+&amp;p_1(x),\quad x\in[x_1,x_2]\
+&amp;\cdots\
+&amp;p_{n-1}(x),\quad x\in[x_{n-1},x_n]\
+\end{aligned}
+\right.
+$$</p>
+<p>分段线性插值的余项可以通过基于泰勒展开的公式计算：</p>
+<div>
+\$\$R_n(x)=f(x)-p_n(x)=\frac{1}{2}\frac{f''(\xi)}{n}(x-a)(x-b)\$\$
 </div>
+<p>其中，$\xi \in [a,b]$，$f&rsquo;&rsquo;(\xi)$表示函数$f(x)$在点$\xi$处的二阶导数。这个公式表明，余项大小与插值区间长度$n$成反比，与函数的二阶导数$f&rsquo;&rsquo;(x)$成正比，与插值节点$x_i$的位置有关。</p>
+<p>因此，在进行分段线性插值时，应尽可能选择插值节点使得插值区间长度$n$较小，同时应注意函数的二阶导数在插值区间内是否较大，以避免误差过大。</p>
+<p>分段线性插值的优点是简单易行，计算量小，但是精度有限，只能用于对连续函数进行粗略的近似。</p>
+<h4 id="253-分段三次埃米尔特插值">2.5.3. 分段三次埃米尔特插值</h4>
+<p>分段线性插值函数 $I_h(x)$ 的导数是间断的，若在节点 $x_k(k=0,1, \cdots, n)$ 上除已知函数 $f_k$ 外还给出导数值 $f_k^{\prime}=m_k(k=0,1, \cdots, n)$，这样就可构造一个导数连续的分段插值 $I_h(x)$，它满足条件：</p>
+<ol>
+<li>$I_h(x) \in C^1[a, b]$；</li>
+<li>$I_h\left(x_k\right)=f_k, I_h^{\prime}\left(x_k\right)=f_k^{\prime}(k=0,1, \cdots, n)$；</li>
+<li>$I_h(x)$ 在每个小区间 $\left[x_k, x_{k+1}\right]$ 上是三次多项式。</li>
+</ol>
+<p>根据两点三次插值多项式可知，$I_h(x)$ 在区间 $\left[x_k, x_{k+1}\right]$ 上的表达式为：
+$$
+\begin{aligned}
+I_h(x)= &amp; \left(\frac{x-x_{k+1}}{x_k-x_{k+1}}\right)^2\left(1+2 \frac{x-x_k}{x_{k+1}-x_k}\right) f_k+\left(\frac{x-x_k}{x_{k+1}-x_k}\right)^2\left(1+2 \frac{x-x_{k+1}}{x_k-x_{k+1}}\right) f_{k+1} \
+&amp; +\left(\frac{x-x_{k+1}}{x_k-x_{k+1}}\right)^2\left(x-x_k\right) f_k^{\prime}+\left(\frac{x-x_k}{x_{k+1}-x_k}\right)^2\left(x-x_{k+1}\right) f_{k+1}^{\prime}
+\end{aligned}
+$$</p>
+<p>分段三次埃尔米特插值的余项可以通过如下公式估计：</p>
+<div>
+\$\$|R(x)|=|f(x)-I_h(x)|\leq\frac{5}{384}h^4\max_{x_i\leq x\leq x_{i+1}}|f^{(4)}(x)|,\quad x_0\leq x\leq x_n\$\$
+</div>
+<p>这个公式的起点是泰勒展开式的余项$R_n(x)$，表示n次泰勒多项式和原函数之间的误差，具体形式为：</p>
+<div>
+\$\$R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\$\$
+</div>
+<p>其中，$\xi$是介于$a$和$x$之间的某个数。</p>
+<p>对于分段三次埃尔米特函数有：</p>
+<div>
+\$\$f(x_i)-I_h(x_i)=R_3(x_i)\$\$
+</div>
+<p>其中，$I_h(x_i)$表示分段三次埃尔米特函数在节点$x_i$处的函数值。</p>
+<p>我们需要对余项$R_3(x_i)$进行估计，这可以使用拉格朗日中值定理。具体来说，我们可以找到介于$x_{i-1}$和$x_i$之间的某个数$\xi_i$，使得：</p>
+<div>
+\$\$R_3(x_i)=\frac{f^{(4)}(\xi_i)}{4!}(x_i-x_{i-1})^4\$\$
+</div>
+<p>然后，我们将$x_i-x_{i-1}$替换为$h$，得到：</p>
+<div>
+\$\$|R(x_i)|=|f(x_i)-I_h(x_i)|=|R_3(x_i)|\leq\frac{1}{4!}\max_{x_{i-1}\leq x\leq x_i}|f^{(4)}(x)|h^4\$\$
+</div>
+<p>为了得到整个区间$[x_0,x_n]$上的误差估计，我们需要将每个节点上的误差估计加起来。因为每个小区间的长度都是$h$，所以整个区间上的误差估计为：</p>
+<div>
+\$\$|R(x)|=\sum_{i=1}^{n}|R(x_i)|\leq\frac{1}{4!}\max_{x_{i-1}\leq x\leq x_i}|f^{(4)}(x)|\sum_{i=1}^{n}h^4\$\$
+</div>
+<p>我们知道，整个区间的长度为$L=x_n-x_0$，所以$n=\frac{L}{h}$。将$n$代入上式，得到：</p>
+<div>
+\$\$|R(x)|\leq\frac{1}{4!}\max_{x_{i-1}\leq x\leq x_i}|f^{(4)}(x)|\frac{L}{h}h^4=\frac{5}{384}h^4\max_{x_{i-1}\leq x\leq x_i}|f^{(4)}(x)|,\quad x_0\leq x\leq x_n\$\$
+</div>
+<h3 id="26三次样条插值">2.6. 三次样条插值</h3>
+<p>三次样条插值是一种常用的插值方法，它通过在给定数据点之间插入一些三次函数来近似原始数据。这些三次函数被称为样条函数，因为它们在每个数据点处的值和一阶导数值都相等，同时它们在相邻数据点之间的函数值和一阶导数值也相等。</p>
+<h4 id="261-三次样条函数">2.6.1. 三次样条函数</h4>
+<p>三次样条函数是指在每个数据点之间使用三次多项式来近似原始数据的函数。具体来说，假设有 $n+1$ 个数据点 $(x_0,y_0),(x_1,y_1),\ldots,(x_n,y_n)$，其中 $x_0&lt;x_1&lt;\cdots&lt;x_n$。则在每个相邻数据点之间，可以使用一个三次多项式 $S_i(x)$ 来近似原始数据。这个三次多项式的形式为：</p>
+<div>
+\$\$S_i(x)=a_i+b_i(x-x_i)+c_i(x-x_i)^2+d_i(x-x_i)^3,\quad x_i\leq x\leq x_{i+1}\$\$
+</div>
+<p>其中 $a_i=y_i$，$b_i$，$c_i$，$d_i$ 是待定系数。为了确定这些系数，需要满足以下条件：</p>
+<ol>
+<li>在每个数据点处，函数值相等：$S_i(x_i)=y_i$。</li>
+<li>在每个数据点处，一阶导数值相等：$S_i&rsquo;(x_i)=S_{i-1}&rsquo;(x_i)$。</li>
+<li>在每个数据点处，二阶导数值相等：$S_i&rsquo;&rsquo;(x_i)=S_{i-1}&rsquo;&rsquo;(x_i)$。</li>
+<li>在两端点处，二阶导数值为零：$S_0&rsquo;&rsquo;(x_0)=S_n&rsquo;&rsquo;(x_n)=0$。</li>
+</ol>
+<p>这些条件可以转化为一个线性方程组，从而求解出 $b_i$，$c_i$，$d_i$。具体来说，设 $h_i=x_{i+1}-x_i$，$M_i=S_i&rsquo;&rsquo;(x_i)$，则有：</p>
+<div>
+\$\$\begin{aligned} a_i&=y_i\\ b_i&=\frac{y_{i+1}-y_i}{h_i}-\frac{h_i}{3}(2M_i+M_{i+1})\\ c_i&=\frac{M_{i+1}-M_i}{3h_i}\\ d_i&=\frac{M_i}{2}\\ \end{aligned}\$\$
+</div>
+<p>其中 $M_i$ 是第 $i$ 段的弯矩，满足以下三个性质：</p>
+<ol>
+<li>$M_0=0$。</li>
+<li>对于 $i=1,2,\ldots,n-1$，有 $3h_iM_i+h_{i-1}M_{i-1}+h_{i+1}M_{i+1}=3\frac{y_{i+1}-y_i}{h_i}-3\frac{y_i-y_{i-1}}{h_{i-1}}$。</li>
+<li>$M_n=0$。</li>
+</ol>
+<p>三次样条函数可以用三弯矩方程求解，其形式为：</p>
+<div>
+\$\$\begin{bmatrix}1&0&0&\cdots&0\\h_1&2(h_1+h_2)&h_2&\cdots&0\\0&h_2&2(h_2+h_3)&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&\cdots&1\end{bmatrix}\begin{bmatrix}M_0\\M_1\\M_2\\\vdots\\M_n\end{bmatrix}=\begin{bmatrix}0\\d_1\\d_2\\\vdots\\0\end{bmatrix}\$\$
+</div>
+<p>其中，$h_i=x_{i+1}-x_i$ 是第 $i$ 段的长度，$M_i=S_i&rsquo;&rsquo;(x_i)$ 是第 $i$ 段的弯矩，$d_i$ 是根据连续性条件和边界条件得出的方程组右端项。</p>
+<p>解出 $M_i$ 后，就可以通过以下公式求出每个小段的样条函数：</p>
+<div>
+\$\$S_i(x)=\frac{M_{i-1}}{6h_i}(x_{i+1}-x)^3+\frac{M_i}{6h_i}(x-x_i)^3+\frac{y_{i-1}-M_{i-1}h_i^2}{h_i}(x_{i+1}-x)+\frac{y_i-M_ih_i^2}{h_i}(x-x_i)\$\$
+</div>
+<p>其中，$y_i=f(x_i)$ 是插值点的函数值。</p>
+<h4 id="262-样条插值函数的建立">2.6.2. 样条插值函数的建立</h4>
+<p>利用三次样条函数，我们可以得到样条插值函数：</p>
+<div>
+\$\$S(x)=\begin{cases}S_0(x)&x\in[x_0,x_1]\\S_1(x)&x\in[x_1,x_2]\\ \cdots & \cdots \\ S_{n-1}(x)&x\in[x_{n-1},x_n]\end{cases}\$\$
+</div>
+<p>其中，$S_i(x)$ 是在区间 $[x_{i-1},x_i]$ 上的三次样条函数。</p>
+<h4 id="263-误差界与收敛性">2.6.3. 误差界与收敛性</h4>
+<p>类似分段三次埃尔米特函数，三次样条插值的误差界为：</p>
+<div>
+\$\$|f(x)-S(x)|\leq\frac{5}{384}h^4\max_{x_i\leq x\leq x_{i+1}}|f^{(4)}(x)|,\quad x_0\leq x\leq x_n\$\$
+</div>
+<p>其中 $h=\max_{i=0,1,\ldots,n-1}(x_{i+1}-x_i)$。这个误差界比线性插值和二次插值的误差界都要小，因此三次样条插值通常比它们更精确。</p>
+<p>三次样条插值的收敛性也很好，即当数据点的数量 $n$ 趋近于无穷大时，样条插值函数会收敛到原始函数 $f(x)$。这个结论可以通过极限理论来证明。</p>
 
 </main>
 
-  <footer>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<script src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
 
-<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
+  <footer>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+        {left: '\\(', right: '\\)', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
 
   
   <hr/>
-  © <a href="https://yihui.org">Yihui Xie</a> 2017 &ndash; 2024 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a>
+  © <a href="http://localhost:5601/blog/">Leocl</a> 2022 &ndash; 2024 | <a href="https://github.com/Leo-cl26">Github</a> | <a href="https://www.zhihu.com/people/mmtumr">ZhiHu</a>
   
   </footer>
   </body>
 </html>
+
+<script src="/blog/js/clipboard.js"></script>
+
+
+
+
 

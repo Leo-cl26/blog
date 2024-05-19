@@ -22,15 +22,32 @@ hr {
   color: #ddd;
 }
 
-/* code */
+/* Stylings for <pre> tags, often used to display blocks of code */
 pre {
-  border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
+  position: relative;
   padding: 1em;
-  overflow-x: auto;
+  background-color: #333; /* Dark background for code blocks */
+  color: #eee; /* Light text color for readability */
+  max-width: 100%;
+  overflow: auto; /* Ensures scrollbars appear when needed */
 }
-code { background: #f9f9f9; }
-pre code { background: none; }
+
+/* Stylings for inline <code> tags included within <p> tags, and <kbd> tags */
+p code,
+kbd {
+  font-size: 0.95rem;
+  background: #444; /* Slightly lighter dark background for contrast */
+  color: #ddd; /* Light text color */
+  padding: 0.2em;
+}
+
+/* Common stylings for all <code>, <pre>, and <kbd> tags */
+code,
+pre,
+kbd {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Font family for code */
+  line-height: 154%;
+}
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
@@ -49,3 +66,21 @@ table {
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
+
+.highlight-copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.8em;
+  line-height: 1.8;
+  color: #fff;
+  background-color: #777;
+  min-width: 55px;
+  text-align: center;
+}
+.highlight-copy-btn:hover {
+  background-color: #666;
+}
