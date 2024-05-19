@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Leocl&#39;s blog</title>
-    <link>https://http://www.leocl.space/post/</link>
+    <link>https://www.leocl.space/post/</link>
     <description>Recent content in Posts on Leocl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://http://www.leocl.space/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.leocl.space/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数值计算方法:9-常微分方程初值问题数值解法</title>
-      <link>https://http://www.leocl.space/post/2022/07/25/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%959-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%88%9D%E5%80%BC%E9%97%AE%E9%A2%98%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</link>
+      <link>https://www.leocl.space/post/2022/07/25/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%959-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%88%9D%E5%80%BC%E9%97%AE%E9%A2%98%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</link>
       <pubDate>Mon, 25 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/07/25/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%959-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%88%9D%E5%80%BC%E9%97%AE%E9%A2%98%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</guid>
+      <guid>https://www.leocl.space/post/2022/07/25/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%959-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%88%9D%E5%80%BC%E9%97%AE%E9%A2%98%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</guid>
       <description>9.1 引言 常微分方程是数学中的一个重要分支，它主要研究未知函数的导数与自变量之间的关系。而常微分方程初值问题数值解法，就是通过数值计算的方法，求出一个微分方程在给定初始值下的解。这个问题在科学、工程、经济等领域中都有广泛的应用，因此其研究具有重要的理论和实际意义。
 9.2 简单的数值方法 在解决常微分方程初值问题时，最简单的思路就是把微分方程看成一个离散的数值问题。即将自变量分割成若干个等分的小段，并在每个小段上近似求得未知函数的值。这样的数值方法又称为离散化方法。
 常用的离散化方法有欧拉法、后退欧拉法、梯形方法和改进欧拉公式等。下面将逐一介绍。
@@ -34,10 +34,10 @@ $y_{n+1}=y_n+\frac{\Delta t}{2}[f(t_n,y_n)+f(t_{n+1},y_n+\Delta t f(t_n,y_n))]$
     
     <item>
       <title>数值计算方法:8-矩阵特征值计算</title>
-      <link>https://http://www.leocl.space/post/2022/07/09/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%958-%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97/</link>
+      <link>https://www.leocl.space/post/2022/07/09/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%958-%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/07/09/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%958-%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97/</guid>
+      <guid>https://www.leocl.space/post/2022/07/09/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%958-%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97/</guid>
       <description>8.1. 特征值性质和估计 8.1.1. 特征值问题及其性质 定义：设$A$是$n$阶方阵，$\lambda$是一个数，如果存在一个非零向量$x$使得$Ax=\lambda x$，则称$\lambda$是$A$的特征值，$x$是对应于特征值$\lambda$的特征向量。
 特征值问题是求解$Ax=\lambda x$的$\lambda$和$x$的问题。特征值问题是矩阵计算中最重要的问题之一，具有广泛的应用背景。例如，特征值和特征向量可以用于谱聚类、主成分分析和矩阵对角化等领域。
 特征值问题的另一个重要性质是：对于一个$n$阶方阵，它的特征值个数等于$n$。这个性质被称为代数重数定理。如果$\lambda$是$A$的特征值，并且对应于$\lambda$的特征向量有$k$个，那么称$\lambda$的代数重数为$k$。代数重数是特征值问题中的另一个重要概念。
@@ -70,10 +70,10 @@ $$ \lim_{k\to\infty}\frac{x_k}{\lambda_1^k}=\frac{v_1}{|v_1|} $$
     
     <item>
       <title>数值计算方法:7-非线性方程与方程组的数值解法</title>
-      <link>https://http://www.leocl.space/post/2022/06/13/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%957-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</link>
+      <link>https://www.leocl.space/post/2022/06/13/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%957-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</link>
       <pubDate>Mon, 13 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/06/13/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%957-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</guid>
+      <guid>https://www.leocl.space/post/2022/06/13/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%957-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3%E6%B3%95/</guid>
       <description>7.1. 方程求根与二分法 7.1.1. 引言 在数学中，函数的根（或零点）是指函数的值为0的点。寻找函数的根是数值分析中的重要问题，因为它在科学和工程中有着广泛的应用。通常情况下，函数的根无法用解析方法求出，因此需要采用数值方法来计算。
 其中，二分法是求解非线性方程的最基本的数值方法之一。
 7.1.2. 二分法 假设$f(x)$在$x=a$和$x=b$之间连续，并且$f(a)$与$f(b)$的符号不同，即$f(a)·f(b)&amp;lt;0$。则$f(x)$在$(a,b)$内至少有一个根。
@@ -101,10 +101,10 @@ $$ x_{n+1} = x_n + \frac{1}{\frac{1}{x_n-x_{n-1}}-\frac{1}{x_{n}-x_{n-1}}} $$
     
     <item>
       <title>数值计算方法:6-解线性方程组的迭代法</title>
-      <link>https://http://www.leocl.space/post/2022/05/28/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%956-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E8%BF%AD%E4%BB%A3%E6%B3%95/</link>
+      <link>https://www.leocl.space/post/2022/05/28/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%956-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E8%BF%AD%E4%BB%A3%E6%B3%95/</link>
       <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/05/28/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%956-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E8%BF%AD%E4%BB%A3%E6%B3%95/</guid>
+      <guid>https://www.leocl.space/post/2022/05/28/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%956-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E8%BF%AD%E4%BB%A3%E6%B3%95/</guid>
       <description>6.1 迭代法的基本概念 6.1.1 引言 在实际问题中，线性方程组的解往往不是直接求解得到的，而是通过一些迭代算法来逐步逼近解。迭代法是一种通过递推公式，将原问题转化为逐步逼近的问题，最终达到精度要求的方法。本章将介绍解线性方程组的迭代法。
 6.1.2 向量序列与矩阵序列的极限 在迭代法中，我们需要研究向量序列和矩阵序列的极限。设${x_k}$是向量序列，${A_k}$是矩阵序列，${b_k}$是常向量序列，若存在向量$x$，使得$\lim\limits_{k \to \infty}x_k=x$，则称向量序列${x_k}$收敛于向量$x$，记作$x_k \to x$。若存在矩阵$A$，使得$\lim\limits_{k \to \infty}A_k=A$，则称矩阵序列${A_k}$收敛于矩阵$A$，记作$A_k \to A$。
 6.1.3 迭代法及其收敛性 设$Ax=b$是线性方程组，$A=D-L-U$，其中$D$为$A$的对角线矩阵，$L$为$A$的下三角矩阵，$U$为$A$的上三角矩阵，若$\det(D) \neq 0$，则原方程组的解为$x=A^{-1}b$。考虑用迭代法求解该方程组，即构造如下迭代格式：
@@ -121,10 +121,10 @@ $A=[a_{ij}]_{n \times n}$，$b=[b_i]_{n \times 1}$ ，则方程组可以表示�
     
     <item>
       <title>数值计算方法:5-解线性方程的直接方法</title>
-      <link>https://http://www.leocl.space/post/2022/05/02/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%955-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%96%B9%E6%B3%95/</link>
+      <link>https://www.leocl.space/post/2022/05/02/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%955-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/05/02/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%955-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://www.leocl.space/post/2022/05/02/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%955-%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E7%9B%B4%E6%8E%A5%E6%96%B9%E6%B3%95/</guid>
       <description>5.1. 引言与预备知识 5.1.1. 引言 解线性方程组是数学中一个重要的问题，它的应用非常广泛，涉及到物理、工程、经济等领域。直接方法是解线性方程组的一种基本方法，它的思想是通过一系列的基本变换，将线性方程组转化为一个简单的形式，然后求解出未知数的值。
 5.1.2. 向量和矩阵 向量是一个有序数组，通常用列向量的形式表示，例如：
 $$ \boldsymbol{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} $$ 矩阵是一个由数个数排成的矩形，通常用大写字母表示，例如： $$ A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix} $$ 矩阵可以进行加、减、数乘、矩阵乘法等运算。矩阵乘法的定义是： 设 $A$ 是 $m \times n$ 的矩阵，$B$ 是 $n \times p$ 的矩阵，那么 $A$ 与 $B$ 的乘积 $C = AB$ 是一个 $m \times p$ 的矩阵，其中：</description>
@@ -132,10 +132,10 @@ $$ \boldsymbol{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} $$
     
     <item>
       <title>数值计算方法:4-数值积分与数值微分</title>
-      <link>https://http://www.leocl.space/post/2022/04/19/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%954-%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86%E4%B8%8E%E6%95%B0%E5%80%BC%E5%BE%AE%E5%88%86/</link>
+      <link>https://www.leocl.space/post/2022/04/19/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%954-%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86%E4%B8%8E%E6%95%B0%E5%80%BC%E5%BE%AE%E5%88%86/</link>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/04/19/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%954-%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86%E4%B8%8E%E6%95%B0%E5%80%BC%E5%BE%AE%E5%88%86/</guid>
+      <guid>https://www.leocl.space/post/2022/04/19/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%954-%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86%E4%B8%8E%E6%95%B0%E5%80%BC%E5%BE%AE%E5%88%86/</guid>
       <description>4.1. 数值积分概论 4.1.1. 数值积分的基本思想 设 $[a,b]$ 为积分区间，$x_0=a,x_1,x_2,\cdots,x_n=b$ 为区间的 $n+1$ 个分点，将积分区间划分为 $n$ 个小间 $[x_{k-1},x_k]$，则积分的近似值可以表示为：
 $\int_{a}^{b} f(x) dx \approx \sum_{k=1}^{n} \int_{x_{k-1}}^{x_k} f(x) dx$
 对于每个小区间 $[x_{k-1},x_k]$，可以采用近似公式来计算积分值，例如梯形公式、辛普森公式等，积分的近似值为：
@@ -151,10 +151,10 @@ $P(x) = \frac{f(x_{k-1}) + f(x_k)}{2} + \frac{f&amp;rsquo;&amp;rsquo;(\xi)}{12}(
     
     <item>
       <title>数值计算方法:3-函数逼近与快速傅里叶变换</title>
-      <link>https://http://www.leocl.space/post/2022/04/05/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
+      <link>https://www.leocl.space/post/2022/04/05/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/04/05/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
+      <guid>https://www.leocl.space/post/2022/04/05/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%953-%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
       <description>3.1. 函数逼近的基本概念 函数逼近是指用一个函数序列来逼近另一个函数的过程。在实际应用中，我们经常需要用一个简单的函数来近似描述一个复杂的函数，这时就需要用到函数逼近的方法。
 3.1.1. 函数逼近与函数空间 函数逼近的基本思想是将要逼近的函数表示为一个函数空间中的元素，然后在该函数空间中寻找一个函数序列，使得该序列能够逼近要求的函数。
 函数空间是指由一组函数构成的集合，这些函数通常具有某些共同的性质。例如，所有连续函数构成的集合就是一个函数空间，所有可微函数构成的集合也是一个函数空间。
@@ -192,10 +192,10 @@ $\left\{f_n(x)\right\}_0^{\infty}$ 是$[a, b]$上带权 $\rho(x)$ 的正交多�
     
     <item>
       <title>数值计算方法:2-插值法</title>
-      <link>https://http://www.leocl.space/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%952-%E6%8F%92%E5%80%BC%E6%B3%95/</link>
+      <link>https://www.leocl.space/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%952-%E6%8F%92%E5%80%BC%E6%B3%95/</link>
       <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%952-%E6%8F%92%E5%80%BC%E6%B3%95/</guid>
+      <guid>https://www.leocl.space/post/2022/03/22/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%952-%E6%8F%92%E5%80%BC%E6%B3%95/</guid>
       <description>2.1 引言 2.1.1 插值问题的提出 在数值计算中，经常需要在一些已知数据点之间进行插值，即求出一个函数在这些点上的取值，这个问题被称为插值问题。插值问题的应用非常广泛，例如在科学计算中，需要通过实验数据来拟合出一个函数模型，以便进行预测和分析；在工程计算中，需要通过已知数据点来计算出某些未知参数的值。
 2.1.2 多项式插值 多项式插值是一种常用的插值方法，它的基本思想是通过已知数据点构造一个多项式函数，使得这个多项式函数在这些点上与原函数的值相等。多项式插值的优点是简单易用，计算速度快，但是它也存在一些缺点，例如多项式插值可能会出现龙格现象，即在插值点附近出现振荡现象，这会导致插值函数的精度下降。
 2.2 拉格朗日插值 2.2.1 线性插值与抛物线插值 线性插值和抛物线插值是最简单的插值方法，它们分别对应于一次和二次多项式插值。
@@ -207,10 +207,10 @@ $$ P_2(x) = y_0\frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} + y_1\frac{(x -
     
     <item>
       <title>数值计算方法:1-导言</title>
-      <link>https://http://www.leocl.space/post/2022/03/21/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%951-%E5%AF%BC%E8%A8%80/</link>
+      <link>https://www.leocl.space/post/2022/03/21/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%951-%E5%AF%BC%E8%A8%80/</link>
       <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://http://www.leocl.space/post/2022/03/21/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%951-%E5%AF%BC%E8%A8%80/</guid>
+      <guid>https://www.leocl.space/post/2022/03/21/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%951-%E5%AF%BC%E8%A8%80/</guid>
       <description>本系列是基于清华大学《数值分析》的简明教程，该系列被设计为尽可能全面但不详细讲解每部分内容，以便于复习和快速检阅内容。由于作者水平有限，难免存在疏忽，敬请斧正。
 另附原书目录：
 第1章绪论（1）
