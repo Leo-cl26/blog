@@ -17,11 +17,20 @@
     </item>
     
     <item>
-      <title>使用三种不同的方法模拟顶盖驱动空腔</title>
-      <link>https://www.leocl.space/post/2023/08/22/%E4%BD%BF%E7%94%A8%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%B9%E6%B3%95%E6%A8%A1%E6%8B%9F%E9%A1%B6%E7%9B%96%E9%A9%B1%E5%8A%A8%E7%A9%BA%E8%85%94/</link>
-      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      <title>旋转圆柱外表面粘性薄膜行为及其模拟</title>
+      <link>https://www.leocl.space/post/2023/09/28/%E6%97%8B%E8%BD%AC%E5%9C%86%E6%9F%B1%E5%A4%96%E8%A1%A8%E9%9D%A2%E7%B2%98%E6%80%A7%E8%96%84%E8%86%9C%E8%A1%8C%E4%B8%BA%E5%8F%8A%E5%85%B6%E6%A8%A1%E6%8B%9F/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://www.leocl.space/post/2023/08/22/%E4%BD%BF%E7%94%A8%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%B9%E6%B3%95%E6%A8%A1%E6%8B%9F%E9%A1%B6%E7%9B%96%E9%A9%B1%E5%8A%A8%E7%A9%BA%E8%85%94/</guid>
+      <guid>https://www.leocl.space/post/2023/09/28/%E6%97%8B%E8%BD%AC%E5%9C%86%E6%9F%B1%E5%A4%96%E8%A1%A8%E9%9D%A2%E7%B2%98%E6%80%A7%E8%96%84%E8%86%9C%E8%A1%8C%E4%B8%BA%E5%8F%8A%E5%85%B6%E6%A8%A1%E6%8B%9F/</guid>
+      <description>下载pdf</description>
+    </item>
+    
+    <item>
+      <title>使用三种不同的方法模拟顶盖驱动空腔</title>
+      <link>https://www.leocl.space/post/2023/04/17/%E4%BD%BF%E7%94%A8%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%B9%E6%B3%95%E6%A8%A1%E6%8B%9F%E9%A1%B6%E7%9B%96%E9%A9%B1%E5%8A%A8%E7%A9%BA%E8%85%94/</link>
+      <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.leocl.space/post/2023/04/17/%E4%BD%BF%E7%94%A8%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%B9%E6%B3%95%E6%A8%A1%E6%8B%9F%E9%A1%B6%E7%9B%96%E9%A9%B1%E5%8A%A8%E7%A9%BA%E8%85%94/</guid>
       <description>1. 原理简述 1.1 有限差分方法（FDM） 近似导数为有限的差分来离散化偏微分方程，其基础思想是插值法和数值微分。 例如，对于二阶微分方程，其近似是： $\frac{du}{dx} \approx \frac{u_{i+1} - u_{i-1}}{2\Delta x}$（中心差分） $\frac{d^2u}{dx^2} \approx \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2}$
 1.2 有限元法（FEM） 引入形函数来离散化偏微分方程，通常使用弱形式，装配为全局矩阵求解。 例如，求解弹性问题的微分方程： $\nabla \cdot \sigma = b$ 其中，$\sigma$ 是应力张量，$b$ 是体积力。 通过有限元方法，得到类似以下的线性方程： $[K] { u } = { f }$ 其中，$[K]$ 是刚度矩阵，${ u }$ 是位移向量，${ f }$ 是载荷向量。
 1.3 有限体积方法（FDM） ​控制体积内的守恒律来离散化偏微分方程。 例如，对于一维稳态传热： $\dot{q}{i+1/2} - \dot{q}{i-1/2} + s_i \Delta x = 0$ 其中，$\dot{q}$ 是流量，$s_i$ 是源项。
